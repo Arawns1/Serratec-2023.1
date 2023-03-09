@@ -1,3 +1,7 @@
+
+![logo serratec](https://media.discordapp.net/attachments/929069726372597815/1083182903707586710/image.png?width=486&height=135)
+
+
 # Aulas de Introdução a Algoritmos
 
 Professor: Roni Schanuel
