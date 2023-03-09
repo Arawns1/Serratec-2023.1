@@ -25,6 +25,8 @@
 
 ✅  Aula 03: Versionamento de código com Github
 
+✅  [Aula 04](https://github.com/Arawns1/Serratec-2023.1/tree/main/Introdu%C3%A7%C3%A3o%20a%20Algoritmos%20com%20Portugol/Aula%2004): Estruturas de Repetição
+
 <h4 align="center"> 
 	🚧  Em construção...  🚧
 </h4>
