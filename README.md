@@ -1,6 +1,7 @@
 # Aulas de Introdução a Algoritmos
 
 Professor: Roni Schanuel
+
 Total de 60 horas
 
 ## Aulas
