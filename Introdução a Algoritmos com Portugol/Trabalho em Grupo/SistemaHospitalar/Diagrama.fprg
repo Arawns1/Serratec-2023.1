@@ -4,13 +4,60 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Gabriel"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2023-03-11 12:04:52 "/>
+        <attribute name="saved" value="2023-03-11 07:15:17 "/>
         <attribute name="created" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjExOjIwOjUzICI7MjU2Nw=="/>
-        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjEyOjA0OjUyICI7MzsyNjc5"/>
+        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjA3OjE1OjE3ICI7NDsyNjg3"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
-        <body/>
+        <body>
+            <comment text="Por limita&#231;&#227;o do Flowgorithm n&#227;o &#233; possivel declarar variaveis globais, portanto as abaixo s&#227;o globais e devem ficar acima da fun&#231;&#227;o principal&#13;&#10;"/>
+            <declare name="Quartos" type="Integer" array="True" size="24"/>
+            <declare name="somaDeTodasAsConsultas" type="Real" array="False" size=""/>
+            <declare name="numeroTotalDeConsultas" type="Integer" array="False" size=""/>
+            <comment text="Fim das variaveis globais"/>
+            <output expression="&quot;Bem vindo(a) ao Hospital XPTO&quot;" newline="True"/>
+            <declare name="opcao" type="Integer" array="False" size=""/>
+            <do expression="opcao != 5">
+                <comment text="Deve/pode ser escrito com apenas uma linha do escreva"/>
+                <output expression="&quot;Digite uma op&#231;&#227;o: &quot;" newline="True"/>
+                <output expression="&quot;1-Consulta Ambulatorial&quot;" newline="True"/>
+                <output expression="&quot;2 - Interna&#231;&#227;o&quot;" newline="True"/>
+                <output expression="&quot;3 - Listar Quartos&quot;" newline="True"/>
+                <output expression="&quot;4 - Faturamento&quot;" newline="True"/>
+                <output expression="&quot;5 - Sair do Programa&quot;" newline="True"/>
+                <comment text="Substituir os SE por Caso-pare"/>
+                <input variable="opcao"/>
+                <if expression="opcao == 1">
+                    <then>
+                        <call expression="RealizarConsulta"/>
+                    </then>
+                    <else>
+                        <if expression="opcao == 2">
+                            <then>
+                                <call expression="RealizarInternacao"/>
+                            </then>
+                            <else>
+                                <if expression="opcao == 3">
+                                    <then>
+                                        <call expression="ListarQuartos(Quartos)"/>
+                                    </then>
+                                    <else>
+                                        <if expression="opcao == 4">
+                                            <then>
+                                                <call expression="RealizarFaturamento"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </do>
+            <output expression="&quot;Fim do Programa&quot;" newline="True"/>
+        </body>
     </function>
     <function name="atribuirDadosPaciente" type="None" variable="">
         <parameters>
@@ -20,25 +67,69 @@
         </parameters>
         <body/>
     </function>
-    <function name="Consulta" type="None" variable="">
-        <parameters/>
-        <body/>
-    </function>
-    <function name="Faturamento" type="None" variable="">
-        <parameters/>
-        <body/>
-    </function>
-    <function name="Internacao" type="None" variable="">
-        <parameters/>
-        <body/>
-    </function>
-    <function name="listarQuartos" type="None" variable="">
-        <parameters/>
-        <body/>
+    <function name="ListarQuartos" type="None" variable="">
+        <parameters>
+            <parameter name="Quartos" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <output expression="&quot;Listando Quartos&quot;" newline="True"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="23" direction="inc" step="1">
+                <comment text="N&#250;mero do quarto"/>
+                <output expression="i" newline="True"/>
+                <comment text="Pula linha"/>
+                <output expression="" newline="True"/>
+                <comment text="Status (0 - vazio ou 1 - ocupado)"/>
+                <output expression="Quartos[i]" newline="True"/>
+            </for>
+        </body>
     </function>
     <function name="listarVagas" type="None" variable="">
         <parameters/>
         <body/>
+    </function>
+    <function name="RealizarConsulta" type="None" variable="valorConsulta">
+        <parameters/>
+        <body>
+            <declare name="nome" type="String" array="False" size=""/>
+            <declare name="telefone" type="String" array="False" size=""/>
+            <declare name="especialidade" type="String" array="False" size=""/>
+            <declare name="valorConsulta" type="Real" array="False" size=""/>
+            <assign variable="valorConsulta" expression="0"/>
+            <output expression="&quot;Op&#231;&#227;o consulta selecionada! &quot;" newline="True"/>
+            <output expression="&quot;Digite seu nome: &quot;" newline="True"/>
+            <input variable="nome"/>
+            <output expression="nome&amp;&quot; digite seu telefone: &quot;" newline="True"/>
+            <input variable="telefone"/>
+            <output expression="&quot;Digite a especialidade: &quot;" newline="True"/>
+            <input variable="especialidade"/>
+            <comment text="O melhor jeito para realizar a compara&#231;&#227;o do texto digitado seria colocar o valor da variavel especialidade em CAIXA ALTA, e ent&#227;o comparar"/>
+            <if expression="(especialidade == &quot;Pediatria&quot;) or( especialidade == &quot;pediatria&quot;) or (especialidade == &quot;PEDIATRIA&quot;)">
+                <then>
+                    <assign variable="valorConsulta" expression="valorConsulta + 120"/>
+                </then>
+                <else>
+                    <assign variable="valorConsulta" expression="valorConsulta + 150"/>
+                </else>
+            </if>
+            <output expression="valorConsulta" newline="True"/>
+            <comment text="Por limita&#231;&#227;o do flowgorith n&#227;o &#233; possivel definir varivaies globais. Por&#233;m aqui deve-se aumentar a variavel numeroTotalDeConsultas"/>
+            <comment text="Deve-se tamb&#233;m somar &#224; variavel global somaDeTodasAsConsultas a variavel local valorConsulta"/>
+            <output expression="&quot;Consulta realizada com sucesso&quot;" newline="True"/>
+            <output expression="&quot;Voltando ao menu...&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="RealizarFaturamento" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Faturamento&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="RealizarInternacao" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Interna&#231;&#227;o&quot;" newline="True"/>
+        </body>
     </function>
     <function name="verificaDigitacao" type="None" variable="">
         <parameters>
