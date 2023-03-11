@@ -5,9 +5,9 @@
 	Exibir ao final o nome do time campeão e o último colocado na pontuação.
  */
 programa
-{	
+{	
 	
-	cadeia nomeTimes[6], campeao, ultimo
+	cadeia nomeTimes[6], campeao, ultimo
 	inteiro pontuacaoTimes[6]
 	inteiro maiorPontuacao=0,menorPontuacao=999
 	
@@ -32,7 +32,8 @@ programa
 				}
 			
 		}
-	
+
+		limpa()
 		escreva("\n")
 		escreva("TIME")
 		escreva("\t\t|\t\t")
@@ -60,7 +61,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1031; 
+ * @POSICAO-CURSOR = 830; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
