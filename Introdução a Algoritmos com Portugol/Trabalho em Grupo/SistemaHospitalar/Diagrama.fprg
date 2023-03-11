@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Gabriel"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-03-11 12:04:52 "/>
+        <attribute name="created" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjExOjIwOjUzICI7MjU2Nw=="/>
+        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjEyOjA0OjUyICI7MzsyNjc5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="atribuirDadosPaciente" type="None" variable="">
+        <parameters>
+            <parameter name="nome" type="String" array="False"/>
+            <parameter name="telefone" type="String" array="False"/>
+            <parameter name="especialidade" type="String" array="False"/>
+        </parameters>
+        <body/>
+    </function>
+    <function name="Consulta" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="Faturamento" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="Internacao" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="listarQuartos" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="listarVagas" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="verificaDigitacao" type="None" variable="">
+        <parameters>
+            <parameter name="textoDigitado" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="valorConvertidoParaInteiro" type="Integer" array="False" size=""/>
+            <declare name="eInteiro" type="Boolean" array="False" size=""/>
+            <assign variable="eInteiro" expression="Tipos.cadeia_e_inteiro(textoDigitado,10)"/>
+            <if expression="eInteiro">
+                <then>
+                    <assign variable="valorConvertidoParaInteiro" expression="Tipos.cadeia_para_inteiro(TextoDigitado,10)"/>
+                    <call expression="verificaIntervalo(valorConvertidoParaInteiro)"/>
+                </then>
+                <else>
+                    <output expression="&quot;Digite um valor valido!&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="verificaIntervalo" type="Boolean" variable="estaNoIntervalo">
+        <parameters>
+            <parameter name="valor" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="estaNoIntervalo" type="Integer" array="False" size=""/>
+            <if expression="valor &gt;= 1 and valor&lt;=20">
+                <then>
+                    <assign variable="estaNoIntervalo" expression="true"/>
+                </then>
+                <else>
+                    <assign variable="estaNoIntervalo" expression="false"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="verificaOcupacaoDeQuartos" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+</flowgorithm>
