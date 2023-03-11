@@ -4,17 +4,30 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Gabriel"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2023-03-11 07:15:17 "/>
+        <attribute name="saved" value="2023-03-11 08:47:12 "/>
         <attribute name="created" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjExOjIwOjUzICI7MjU2Nw=="/>
-        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjA3OjE1OjE3ICI7NDsyNjg3"/>
+        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjA4OjQ3OjEyICI7MTA7MjczMw=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
             <comment text="Por limita&#231;&#227;o do Flowgorithm n&#227;o &#233; possivel declarar variaveis globais, portanto as abaixo s&#227;o globais e devem ficar acima da fun&#231;&#227;o principal&#13;&#10;"/>
-            <declare name="Quartos" type="Integer" array="True" size="24"/>
-            <declare name="somaDeTodasAsConsultas" type="Real" array="False" size=""/>
             <declare name="numeroTotalDeConsultas" type="Integer" array="False" size=""/>
+            <assign variable="numeroTotalDeConsultas" expression="0"/>
+            <declare name="somaDeTodasAsConsultas" type="Real" array="False" size=""/>
+            <assign variable="somaDeTodasAsConsultas" expression="0"/>
+            <declare name="numeroTotalDeInternacoes" type="Integer" array="False" size=""/>
+            <assign variable="numeroTotalDeInternacoes" expression="0"/>
+            <declare name="somaDeTodasAsInternacoes" type="Integer" array="False" size=""/>
+            <assign variable="somaDeTodasAsInternacoes" expression="0"/>
+            <declare name="Quartos" type="Boolean" array="True" size="24"/>
+            <comment text="Atribuindo valores iniciais pro vetor &#13;&#10;Esse passo n&#227;o precisa fazzer no portugol&#13;&#10;"/>
+            <declare name="contador" type="Integer" array="False" size=""/>
+            <assign variable="contador" expression="0"/>
+            <while expression="contador &lt; 24">
+                <assign variable="Quartos[contador]" expression="false"/>
+                <assign variable="contador" expression="contador+1"/>
+            </while>
             <comment text="Fim das variaveis globais"/>
             <output expression="&quot;Bem vindo(a) ao Hospital XPTO&quot;" newline="True"/>
             <declare name="opcao" type="Integer" array="False" size=""/>
@@ -30,12 +43,13 @@
                 <input variable="opcao"/>
                 <if expression="opcao == 1">
                     <then>
-                        <call expression="RealizarConsulta"/>
+                        <assign variable="somaDeTodasAsConsultas" expression="RealizarConsulta() + somaDeTodasAsConsultas"/>
+                        <assign variable="numeroTotalDeConsultas" expression="numeroTotalDeConsultas+1"/>
                     </then>
                     <else>
                         <if expression="opcao == 2">
                             <then>
-                                <call expression="RealizarInternacao"/>
+                                <call expression="RealizarInternacao(Quartos)"/>
                             </then>
                             <else>
                                 <if expression="opcao == 3">
@@ -59,36 +73,48 @@
             <output expression="&quot;Fim do Programa&quot;" newline="True"/>
         </body>
     </function>
-    <function name="atribuirDadosPaciente" type="None" variable="">
+    <function name="Internacao" type="None" variable="">
         <parameters>
-            <parameter name="nome" type="String" array="False"/>
-            <parameter name="telefone" type="String" array="False"/>
-            <parameter name="especialidade" type="String" array="False"/>
+            <parameter name="Quartos" type="Boolean" array="True"/>
         </parameters>
-        <body/>
+        <body>
+            <declare name="numeroQuartoEscolhido" type="Integer" array="False" size=""/>
+            <output expression="&quot;Quartos dispon&#237;veis&quot;" newline="True"/>
+            <call expression="ListarQuartos(Quartos)"/>
+            <output expression="&quot;Escolha um quarto: &quot;" newline="True"/>
+            <input variable="numeroQuartoEscolhido"/>
+            <if expression="Quartos[numeroQuartoEscolhido - 1] == false &amp;&amp; numeroQuartoEscolhido - 1 &gt; -1 &amp;&amp; numeroQuartoEscolhido - 1 &lt;= 24">
+                <then>
+                    <assign variable="Quartos[numeroQuartoEscolhido - 1]" expression="true"/>
+                </then>
+                <else>
+                    <output expression="&quot;Erro, quarto indisponivel&quot;" newline="True"/>
+                </else>
+            </if>
+            <output expression="&quot;Quarto reservado com sucesso! &quot;" newline="True"/>
+        </body>
     </function>
     <function name="ListarQuartos" type="None" variable="">
         <parameters>
-            <parameter name="Quartos" type="Integer" array="True"/>
+            <parameter name="Quartos" type="Boolean" array="True"/>
         </parameters>
         <body>
             <output expression="&quot;Listando Quartos&quot;" newline="True"/>
             <declare name="i" type="Integer" array="False" size=""/>
             <for variable="i" start="0" end="23" direction="inc" step="1">
-                <comment text="N&#250;mero do quarto"/>
-                <output expression="i" newline="True"/>
-                <comment text="Pula linha"/>
-                <output expression="" newline="True"/>
-                <comment text="Status (0 - vazio ou 1 - ocupado)"/>
-                <output expression="Quartos[i]" newline="True"/>
+                <output expression="&quot;O Quarto n&#186;:&quot;&amp; i+1" newline="False"/>
+                <if expression="Quartos[i] == false">
+                    <then>
+                        <output expression="&quot; est&#225; disponivel&quot;" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="&quot; est&#225; ocupado&quot;" newline="True"/>
+                    </else>
+                </if>
             </for>
         </body>
     </function>
-    <function name="listarVagas" type="None" variable="">
-        <parameters/>
-        <body/>
-    </function>
-    <function name="RealizarConsulta" type="None" variable="valorConsulta">
+    <function name="RealizarConsulta" type="Real" variable="valorConsulta">
         <parameters/>
         <body>
             <declare name="nome" type="String" array="False" size=""/>
@@ -112,7 +138,6 @@
                     <assign variable="valorConsulta" expression="valorConsulta + 150"/>
                 </else>
             </if>
-            <output expression="valorConsulta" newline="True"/>
             <comment text="Por limita&#231;&#227;o do flowgorith n&#227;o &#233; possivel definir varivaies globais. Por&#233;m aqui deve-se aumentar a variavel numeroTotalDeConsultas"/>
             <comment text="Deve-se tamb&#233;m somar &#224; variavel global somaDeTodasAsConsultas a variavel local valorConsulta"/>
             <output expression="&quot;Consulta realizada com sucesso&quot;" newline="True"/>
@@ -126,9 +151,18 @@
         </body>
     </function>
     <function name="RealizarInternacao" type="None" variable="">
-        <parameters/>
+        <parameters>
+            <parameter name="Quartos" type="Boolean" array="True"/>
+        </parameters>
         <body>
-            <output expression="&quot;Interna&#231;&#227;o&quot;" newline="True"/>
+            <declare name="nome" type="String" array="False" size=""/>
+            <declare name="telefone" type="String" array="False" size=""/>
+            <output expression="&quot;Digite o nome do paciente: &quot;" newline="True"/>
+            <input variable="nome"/>
+            <output expression="&quot;Digite o telefone: &quot;" newline="True"/>
+            <input variable="telefone"/>
+            <call expression="Internacao(Quartos)"/>
+            <output expression="&quot;Interna&#231;&#227;o concluida&quot;" newline="True"/>
         </body>
     </function>
     <function name="verificaDigitacao" type="None" variable="">
@@ -165,9 +199,5 @@
                 </else>
             </if>
         </body>
-    </function>
-    <function name="verificaOcupacaoDeQuartos" type="None" variable="">
-        <parameters/>
-        <body/>
     </function>
 </flowgorithm>
