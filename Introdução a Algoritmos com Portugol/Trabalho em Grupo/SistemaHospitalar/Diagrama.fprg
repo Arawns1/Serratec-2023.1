@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Gabriel"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2023-03-12 01:05:01 "/>
+        <attribute name="saved" value="2023-03-12 01:23:28 "/>
         <attribute name="created" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjExOjIwOjUzICI7MjU2Nw=="/>
-        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTI7IjAxOjA1OjAxICI7MjU7MjcyNQ=="/>
+        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTI7IjAxOjIzOjI4ICI7Mjc7MjczNg=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -20,6 +20,7 @@
             <assign variable="numeroTotalDeInternacoes" expression="0"/>
             <declare name="somaTotalDeInternacoes" type="Integer" array="False" size=""/>
             <assign variable="somaTotalDeInternacoes" expression="0"/>
+            <comment text="Fim das variaveis globais"/>
             <declare name="Quartos" type="Boolean" array="True" size="24"/>
             <comment text="Atribuindo valores iniciais pro vetor &#13;&#10;Esse passo n&#227;o precisa fazzer no portugol&#13;&#10;"/>
             <declare name="contador" type="Integer" array="False" size=""/>
@@ -28,7 +29,6 @@
                 <assign variable="Quartos[contador]" expression="false"/>
                 <assign variable="contador" expression="contador+1"/>
             </while>
-            <comment text="Fim das variaveis globais"/>
             <output expression="&quot;Bem vindo(a) ao Hospital XPTO&quot;" newline="True"/>
             <declare name="opcao" type="Integer" array="False" size=""/>
             <do expression="opcao != 5">
@@ -142,23 +142,21 @@
             <declare name="valorConsulta" type="Real" array="False" size=""/>
             <assign variable="valorConsulta" expression="0"/>
             <output expression="&quot;Op&#231;&#227;o consulta selecionada! &quot;" newline="True"/>
-            <output expression="&quot;Digite seu nome: &quot;" newline="True"/>
+            <output expression="&quot;Digite o nome do paciente: &quot;" newline="True"/>
             <input variable="nome"/>
-            <output expression="nome&amp;&quot; digite seu telefone: &quot;" newline="True"/>
+            <output expression="&quot;Digite o telefone do paciente: &quot;" newline="True"/>
             <input variable="telefone"/>
-            <output expression="&quot;Digite a especialidade: &quot;" newline="True"/>
+            <output expression="&quot;Digite a especialidade da consulta: &quot;" newline="True"/>
             <input variable="especialidade"/>
             <comment text="O melhor jeito para realizar a compara&#231;&#227;o do texto digitado seria colocar o valor da variavel especialidade em CAIXA ALTA, e ent&#227;o comparar"/>
             <if expression="(especialidade == &quot;Pediatria&quot;) or( especialidade == &quot;pediatria&quot;) or (especialidade == &quot;PEDIATRIA&quot;)">
                 <then>
-                    <assign variable="valorConsulta" expression="valorConsulta + 120"/>
+                    <assign variable="valorConsulta" expression="valorConsulta + 150"/>
                 </then>
                 <else>
-                    <assign variable="valorConsulta" expression="valorConsulta + 150"/>
+                    <assign variable="valorConsulta" expression="valorConsulta + 120"/>
                 </else>
             </if>
-            <comment text="Por limita&#231;&#227;o do flowgorith n&#227;o &#233; possivel definir varivaies globais. Por&#233;m aqui deve-se aumentar a variavel numeroTotalDeConsultas"/>
-            <comment text="Deve-se tamb&#233;m somar &#224; variavel global somaDeTodasAsConsultas a variavel local valorConsulta"/>
             <output expression="&quot;Consulta realizada com sucesso&quot;" newline="True"/>
             <output expression="&quot;Voltando ao menu...&quot;" newline="True"/>
         </body>
@@ -172,7 +170,7 @@
         </parameters>
         <body>
             <output expression="&quot;N&#250;mero total de consultas: &quot;&amp;numeroTotalDeConsultas" newline="True"/>
-            <output expression="&quot;N&#250;mero total de internacoes: &quot;&amp;numeroTotalDeInterna&#231;&#245;es" newline="True"/>
+            <output expression="&quot;N&#250;mero total de interna&#231;&#244;es: &quot;&amp;numeroTotalDeInternacoes" newline="True"/>
             <output expression="&quot;Subtotal arrecadado com consultas: &quot;&amp;somaTotalDeConsultas" newline="True"/>
             <output expression="&quot;Subtotal arrecadado com internacoes: &quot;&amp;somaTotalDeInternacoes" newline="True"/>
             <output expression="&quot;Total arrecadado: &quot;&amp;somaTotalDeInternacoes+somaTotalDeConsultas" newline="True"/>
