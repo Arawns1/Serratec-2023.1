@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Gabriel"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2023-03-11 09:02:33 "/>
+        <attribute name="saved" value="2023-03-12 01:05:01 "/>
         <attribute name="created" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjExOjIwOjUzICI7MjU2Nw=="/>
-        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjA5OjAyOjMzICI7MTU7MjczMw=="/>
+        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTI7IjAxOjA1OjAxICI7MjU7MjcyNQ=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -90,19 +90,28 @@
         </parameters>
         <body>
             <declare name="numeroQuartoEscolhido" type="Integer" array="False" size=""/>
-            <output expression="&quot;Quartos dispon&#237;veis&quot;" newline="True"/>
+            <output expression="&quot;Quartos dispon&#237;veis:&quot;" newline="True"/>
             <call expression="ListarQuartos(Quartos)"/>
             <output expression="&quot;Escolha um quarto: &quot;" newline="True"/>
             <input variable="numeroQuartoEscolhido"/>
-            <if expression="Quartos[numeroQuartoEscolhido - 1] == false &amp;&amp; numeroQuartoEscolhido - 1 &gt; -1 &amp;&amp; numeroQuartoEscolhido - 1 &lt;= 24">
+            <if expression="(verificaIntervaloDoQuarto(numeroQuartoEscolhido-1))">
                 <then>
-                    <assign variable="Quartos[numeroQuartoEscolhido - 1]" expression="true"/>
+                    <if expression="verificaSeQuartoNAOEstaOcupado(numeroQuartoEscolhido-1, Quartos)">
+                        <then>
+                            <assign variable="Quartos[numeroQuartoEscolhido - 1]" expression="true"/>
+                            <output expression="&quot;Quarto reservado com sucesso! &quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Erro, o quarto n&#186; &quot;&amp;numeroQuartoEscolhido&amp;&quot; est&#225; indispon&#237;vel por favor escolha outro&quot;" newline="True"/>
+                            <call expression="Internacao(Quartos)"/>
+                        </else>
+                    </if>
                 </then>
                 <else>
-                    <output expression="&quot;Erro, quarto indisponivel&quot;" newline="True"/>
+                    <output expression="&quot;Erro, n&#227;o h&#225; um quarto com este n&#250;mero, por favor tente novamente&quot;" newline="True"/>
+                    <call expression="Internacao(Quartos)"/>
                 </else>
             </if>
-            <output expression="&quot;Quarto reservado com sucesso! &quot;" newline="True"/>
         </body>
     </function>
     <function name="ListarQuartos" type="None" variable="">
@@ -110,7 +119,6 @@
             <parameter name="Quartos" type="Boolean" array="True"/>
         </parameters>
         <body>
-            <output expression="&quot;Listando Quartos&quot;" newline="True"/>
             <declare name="i" type="Integer" array="False" size=""/>
             <for variable="i" start="0" end="23" direction="inc" step="1">
                 <output expression="&quot;O Quarto n&#186;:&quot;&amp; i+1" newline="False"/>
@@ -164,7 +172,7 @@
         </parameters>
         <body>
             <output expression="&quot;N&#250;mero total de consultas: &quot;&amp;numeroTotalDeConsultas" newline="True"/>
-            <output expression="&quot;N&#250;mero total de internacoes: &quot;&amp;numeroTotalDeInternacoes" newline="True"/>
+            <output expression="&quot;N&#250;mero total de internacoes: &quot;&amp;numeroTotalDeInterna&#231;&#245;es" newline="True"/>
             <output expression="&quot;Subtotal arrecadado com consultas: &quot;&amp;somaTotalDeConsultas" newline="True"/>
             <output expression="&quot;Subtotal arrecadado com internacoes: &quot;&amp;somaTotalDeInternacoes" newline="True"/>
             <output expression="&quot;Total arrecadado: &quot;&amp;somaTotalDeInternacoes+somaTotalDeConsultas" newline="True"/>
@@ -185,37 +193,37 @@
             <output expression="&quot;Interna&#231;&#227;o concluida&quot;" newline="True"/>
         </body>
     </function>
-    <function name="verificaDigitacao" type="None" variable="">
-        <parameters>
-            <parameter name="textoDigitado" type="String" array="False"/>
-        </parameters>
-        <body>
-            <declare name="valorConvertidoParaInteiro" type="Integer" array="False" size=""/>
-            <declare name="eInteiro" type="Boolean" array="False" size=""/>
-            <assign variable="eInteiro" expression="Tipos.cadeia_e_inteiro(textoDigitado,10)"/>
-            <if expression="eInteiro">
-                <then>
-                    <assign variable="valorConvertidoParaInteiro" expression="Tipos.cadeia_para_inteiro(TextoDigitado,10)"/>
-                    <call expression="verificaIntervalo(valorConvertidoParaInteiro)"/>
-                </then>
-                <else>
-                    <output expression="&quot;Digite um valor valido!&quot;" newline="True"/>
-                </else>
-            </if>
-        </body>
-    </function>
-    <function name="verificaIntervalo" type="Boolean" variable="estaNoIntervalo">
+    <function name="verificaIntervaloDoQuarto" type="Boolean" variable="estaNoIntervalo">
         <parameters>
             <parameter name="valor" type="Integer" array="False"/>
         </parameters>
         <body>
-            <declare name="estaNoIntervalo" type="Integer" array="False" size=""/>
-            <if expression="valor &gt;= 1 and valor&lt;=20">
+            <declare name="estaNoIntervalo" type="Boolean" array="False" size=""/>
+            <if expression="valor &gt; -1 and valor &lt;= 24">
                 <then>
                     <assign variable="estaNoIntervalo" expression="true"/>
                 </then>
                 <else>
+                    <output expression="&quot;Valor incorreto&quot;" newline="True"/>
                     <assign variable="estaNoIntervalo" expression="false"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="verificaSeQuartoNAOEstaOcupado" type="Boolean" variable="naoEstaOcupado">
+        <parameters>
+            <parameter name="valor" type="Integer" array="False"/>
+            <parameter name="Quartos" type="Boolean" array="True"/>
+        </parameters>
+        <body>
+            <comment text="Quarto nao ocupado retorna true"/>
+            <declare name="naoEstaOcupado" type="Boolean" array="False" size=""/>
+            <if expression="Quartos[valor] == false">
+                <then>
+                    <assign variable="naoEstaOcupado" expression="true"/>
+                </then>
+                <else>
+                    <assign variable="naoEstaOcupado" expression="false"/>
                 </else>
             </if>
         </body>
