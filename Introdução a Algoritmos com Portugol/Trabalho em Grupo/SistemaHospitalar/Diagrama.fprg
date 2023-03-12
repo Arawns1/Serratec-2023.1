@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Gabriel"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2023-03-11 08:47:12 "/>
+        <attribute name="saved" value="2023-03-11 09:02:33 "/>
         <attribute name="created" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjExOjIwOjUzICI7MjU2Nw=="/>
-        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjA4OjQ3OjEyICI7MTA7MjczMw=="/>
+        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjA5OjAyOjMzICI7MTU7MjczMw=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -14,12 +14,12 @@
             <comment text="Por limita&#231;&#227;o do Flowgorithm n&#227;o &#233; possivel declarar variaveis globais, portanto as abaixo s&#227;o globais e devem ficar acima da fun&#231;&#227;o principal&#13;&#10;"/>
             <declare name="numeroTotalDeConsultas" type="Integer" array="False" size=""/>
             <assign variable="numeroTotalDeConsultas" expression="0"/>
-            <declare name="somaDeTodasAsConsultas" type="Real" array="False" size=""/>
-            <assign variable="somaDeTodasAsConsultas" expression="0"/>
+            <declare name="somaTotalDeConsultas" type="Real" array="False" size=""/>
+            <assign variable="somaTotalDeConsultas" expression="0"/>
             <declare name="numeroTotalDeInternacoes" type="Integer" array="False" size=""/>
             <assign variable="numeroTotalDeInternacoes" expression="0"/>
-            <declare name="somaDeTodasAsInternacoes" type="Integer" array="False" size=""/>
-            <assign variable="somaDeTodasAsInternacoes" expression="0"/>
+            <declare name="somaTotalDeInternacoes" type="Integer" array="False" size=""/>
+            <assign variable="somaTotalDeInternacoes" expression="0"/>
             <declare name="Quartos" type="Boolean" array="True" size="24"/>
             <comment text="Atribuindo valores iniciais pro vetor &#13;&#10;Esse passo n&#227;o precisa fazzer no portugol&#13;&#10;"/>
             <declare name="contador" type="Integer" array="False" size=""/>
@@ -43,13 +43,15 @@
                 <input variable="opcao"/>
                 <if expression="opcao == 1">
                     <then>
-                        <assign variable="somaDeTodasAsConsultas" expression="RealizarConsulta() + somaDeTodasAsConsultas"/>
+                        <assign variable="somaTotalDeConsultas" expression="RealizarConsulta() + somaTotalDeConsultas"/>
                         <assign variable="numeroTotalDeConsultas" expression="numeroTotalDeConsultas+1"/>
                     </then>
                     <else>
                         <if expression="opcao == 2">
                             <then>
                                 <call expression="RealizarInternacao(Quartos)"/>
+                                <assign variable="numeroTotalDeInternacoes" expression="numeroTotalDeInternacoes+1"/>
+                                <assign variable="somaTotalDeInternacoes" expression="somaTotalDeInternacoes+500"/>
                             </then>
                             <else>
                                 <if expression="opcao == 3">
@@ -59,9 +61,18 @@
                                     <else>
                                         <if expression="opcao == 4">
                                             <then>
-                                                <call expression="RealizarFaturamento"/>
+                                                <call expression="RealizarFaturamento(numeroTotalDeConsultas,somaTotalDeConsultas,numeroTotalDeInternacoes,somaTotalDeInternacoes)"/>
                                             </then>
-                                            <else/>
+                                            <else>
+                                                <if expression="opcao==5">
+                                                    <then>
+                                                        <assign variable="opcao" expression="5"/>
+                                                    </then>
+                                                    <else>
+                                                        <output expression="&quot;Op&#231;&#227;o Inv&#225;lida&quot;" newline="True"/>
+                                                    </else>
+                                                </if>
+                                            </else>
                                         </if>
                                     </else>
                                 </if>
@@ -108,7 +119,7 @@
                         <output expression="&quot; est&#225; disponivel&quot;" newline="True"/>
                     </then>
                     <else>
-                        <output expression="&quot; est&#225; ocupado&quot;" newline="True"/>
+                        <output expression="&quot; est&#225; OCUPADO&quot;" newline="True"/>
                     </else>
                 </if>
             </for>
@@ -145,9 +156,18 @@
         </body>
     </function>
     <function name="RealizarFaturamento" type="None" variable="">
-        <parameters/>
+        <parameters>
+            <parameter name="numeroTotalDeConsultas" type="Integer" array="False"/>
+            <parameter name="somaTotalDeConsultas" type="Integer" array="False"/>
+            <parameter name="numeroTotalDeInternacoes" type="Integer" array="False"/>
+            <parameter name="somaTotalDeInternacoes" type="Real" array="False"/>
+        </parameters>
         <body>
-            <output expression="&quot;Faturamento&quot;" newline="True"/>
+            <output expression="&quot;N&#250;mero total de consultas: &quot;&amp;numeroTotalDeConsultas" newline="True"/>
+            <output expression="&quot;N&#250;mero total de internacoes: &quot;&amp;numeroTotalDeInternacoes" newline="True"/>
+            <output expression="&quot;Subtotal arrecadado com consultas: &quot;&amp;somaTotalDeConsultas" newline="True"/>
+            <output expression="&quot;Subtotal arrecadado com internacoes: &quot;&amp;somaTotalDeInternacoes" newline="True"/>
+            <output expression="&quot;Total arrecadado: &quot;&amp;somaTotalDeInternacoes+somaTotalDeConsultas" newline="True"/>
         </body>
     </function>
     <function name="RealizarInternacao" type="None" variable="">
