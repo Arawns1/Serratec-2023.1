@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Gabriel"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2023-03-12 01:23:28 "/>
+        <attribute name="saved" value="2023-03-12 06:16:24 "/>
         <attribute name="created" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTE7IjExOjIwOjUzICI7MjU2Nw=="/>
-        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTI7IjAxOjIzOjI4ICI7Mjc7MjczNg=="/>
+        <attribute name="edited" value="R2FicmllbDtHQUJSSUVMLVBDOzIwMjMtMDMtMTI7IjA2OjE2OjI0ICI7Mjg7Mjc0MA=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -21,11 +21,11 @@
             <declare name="somaTotalDeInternacoes" type="Integer" array="False" size=""/>
             <assign variable="somaTotalDeInternacoes" expression="0"/>
             <comment text="Fim das variaveis globais"/>
-            <declare name="Quartos" type="Boolean" array="True" size="24"/>
+            <declare name="Quartos" type="Boolean" array="True" size="20"/>
             <comment text="Atribuindo valores iniciais pro vetor &#13;&#10;Esse passo n&#227;o precisa fazzer no portugol&#13;&#10;"/>
             <declare name="contador" type="Integer" array="False" size=""/>
             <assign variable="contador" expression="0"/>
-            <while expression="contador &lt; 24">
+            <while expression="contador &lt; 20">
                 <assign variable="Quartos[contador]" expression="false"/>
                 <assign variable="contador" expression="contador+1"/>
             </while>
@@ -120,7 +120,7 @@
         </parameters>
         <body>
             <declare name="i" type="Integer" array="False" size=""/>
-            <for variable="i" start="0" end="23" direction="inc" step="1">
+            <for variable="i" start="0" end="19" direction="inc" step="1">
                 <output expression="&quot;O Quarto n&#186;:&quot;&amp; i+1" newline="False"/>
                 <if expression="Quartos[i] == false">
                     <then>
@@ -197,7 +197,7 @@
         </parameters>
         <body>
             <declare name="estaNoIntervalo" type="Boolean" array="False" size=""/>
-            <if expression="valor &gt; -1 and valor &lt;= 24">
+            <if expression="valor &gt; -1 and valor &lt;= 20">
                 <then>
                     <assign variable="estaNoIntervalo" expression="true"/>
                 </then>
