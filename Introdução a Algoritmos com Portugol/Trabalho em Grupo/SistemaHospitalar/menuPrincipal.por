@@ -1,13 +1,13 @@
 programa
 {
-	inclua biblioteca Util --> u
+	inclua biblioteca Util --> u
 
-	inteiro opcao, numeroTotalDeConsultas = 0, numeroTotalDeInterncaoes
+	inteiro opcao, numeroTotalDeConsultas = 0, numeroTotalDeInterncaoes
 	real somaTotalDeConsultas = 0.0, somaTotalDeIntercoes=0.0
 	logico Quartos[24] //Ao declarar, o vetor assume falso como todas as posições
 	
 	funcao inicio()
-	{	
+	{	
 		faca{
 			mostrarMenu()
 			escreva("Digite sua opção: ")
@@ -77,8 +77,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 521; 
- * @DOBRAMENTO-CODIGO = [37];
+ * @POSICAO-CURSOR = 725; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
