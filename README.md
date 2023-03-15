@@ -27,29 +27,9 @@
 
 ✅  [Aula 04](https://github.com/Arawns1/Serratec-2023.1/tree/main/Introdu%C3%A7%C3%A3o%20a%20Algoritmos%20com%20Portugol/Aula%2004): Estruturas de Repetição
 
-<h4 align="center"> 
-	🚧  Em construção...  🚧
-</h4>
+✅ Aula 05: Vetores
 
+✅ Aula 06: Matrizes
 
-## 🔴 Banco de Dados (Postgrees)
----
-
-## 🔴 Programação Orientada a Objetos(Java)
----
-
-## 🔴 FrontEnd Essencial (HTML, Javascript e CSS)
----
-
-## 🔴 Desenvolvimento de API RESTFUL (Java)
----
-
-## 🔴 Desenvolvimento Web (React)
----
-
-## 🔴 Desenvolvimento de aplicativo Mobile (React Native)
----
-
-## 🔴 Projeto Aplicado
----
+✅ Aula 07: Funções e Bibliotecas
 
