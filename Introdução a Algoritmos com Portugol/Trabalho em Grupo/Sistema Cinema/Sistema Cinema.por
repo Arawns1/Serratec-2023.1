@@ -1,122 +1,114 @@
-
-/*
-No começo do programa todos os assentos deverão ser inicializados com
-zeros(0). O zero(0) indicará que o assento não foi ocupado.
-
-Para reservar um assento digite a linha e a coluna do assento, caso não exista
-deverá ser criticado. O um(1) indicará que o assento foi ocupado. Após a digitação da linha e coluna,
-listar todos os assentos para exibir que a leitura dos dados foi preenchida
-corretamente.
-
-Caso o assento já exista deverá ser criticado
-
-O trabalho deverá ser adicionado ao repositório do GitHub.
- */
- 
- programa
+programa
 {
+	inteiro assentos[11][13]
 	
 	funcao inicio()
 	{
-		inteiro assentos[11][13], assentoLinha , assentoColuna
-		
+	     inteiro linhaInserida, colunaInserida
+	
 		faca{
-			
-			listarAssentos(assentos)
-			
-			faca{	
-				escreva("Escolha a linha do assento: ")
-				leia(assentoLinha)	
-					
-				escreva("Escolha a coluna do assento: ")
-				leia(assentoColuna)
 				
-			} enquanto(verificaAssento(assentoLinha, assentoColuna))
-		
-		} enquanto(assentoEscolher(assentos, assentoLinha,assentoColuna))	
+	     	listarAssentos()
+	
+	     	escreva("Digite uma linha: ")
+	      	leia(linhaInserida)
+	      
+	     	escreva("Digite uma coluna: ")
+	      	leia(colunaInserida)
+	      
+	      	verificaAssentoDigitado(linhaInserida, colunaInserida)
+	     
+			} enquanto((linhaInserida > -1) e (colunaInserida > -1))
+			
+			escreva("\nVocê digitou um número negativo, encerrando o programa...")
 	}
 	
-	funcao listarAssentos(inteiro assentos[][])
+	funcao verificaAssentoDigitado(inteiro linhaInserida, inteiro colunaInserida)
 	{
-		escreva("\n~~ Lista de Assentos ~~\n")
-			para(inteiro linha=1; linha < 11; linha++)
-			{
-				para(inteiro coluna=1; coluna < 13; coluna++)
-				{
-					escreva(assentos[linha][coluna], " ")
-				}
-				
-				escreva("\n")
-			}
-		escreva("\n")
+	     se(linhaInserida < 1 ou linhaInserida > 11)
+	      {
+	        escreva("\nLinha Incorreta! Tente novamente\n")
+	      }
+	      se (colunaInserida < 1 ou colunaInserida > 13)
+	      {
+	        escreva("\nColuna Incorreta! Tente novamente\n")
+	      }
+	      se (nao(linhaInserida < 1 ou linhaInserida > 11) e nao(colunaInserida < 1 ou colunaInserida > 13))
+	      {
+	        verificaDisponibilidade(linhaInserida, colunaInserida)
+	      }
+	}
+		
+	funcao verificaDisponibilidade(inteiro linhaInserida, inteiro colunaInserida)
+	{
+	    se(assentos[linhaInserida][colunaInserida] == 0)
+	    {
+	      assentos[linhaInserida][colunaInserida] = 1
+	      escreva("\nAssento reservado com sucesso!\n")
+	    }
+	    senao
+	    {
+	      escreva("\nAssento ocupado, escolha outro!\n")
+	    }
 	}
 
-	funcao logico verificaAssento(inteiro assentoLinha, inteiro assentoColuna)
-	{
-		logico linhaCorreto = falso, colunaCorreto = falso
-		
-		se(assentoLinha >= 1 e assentoLinha <= 11)
-		{
-			linhaCorreto = verdadeiro	
-				
-			se (assentoColuna >= 1 e assentoColuna <= 13)
-			{
-				colunaCorreto = verdadeiro
-			}
+	funcao listarAssentos()
+	 {
+		escreva("\n\t\t~~ Lista de Assentos ~~\n\n")
+	
+		escreva("---| ")
 			
+		para(inteiro cabecalho = 1; cabecalho <= 12; cabecalho++)
+		{
+			se (cabecalho <= 9)
+			{
+				escreva("0",cabecalho,"  " )
+			}
 			senao
 			{
-				colunaCorreto = falso
-				escreva("Valor incorreto, insira novamente\n")
+				escreva("",cabecalho,"  " )
 			}
 			
-		}
-		senao
+			}
+			
+		escreva("\n")
+			
+		para(inteiro cabecalho = 1; cabecalho <= 54; cabecalho++) 
 		{
-			linhaCorreto = falso
-			escreva("Valor incorreto, insira novamente\n")
+			escreva("-")
 		}
-		
-		retorne(linhaCorreto == falso ou colunaCorreto == falso)
+			
+		escreva("\n")
+			
+		para(inteiro linha=1; linha < 11; linha++)
+		{
+			se (linha < 10)
+			{
+				escreva("0",linha, " | ")
+			}
+			senao 
+			{
+				escreva("",linha, " | ")
+			}
+				
+			para(inteiro coluna=1; coluna < 13; coluna++)
+			{
+				escreva("0",assentos[linha][coluna], "  ")
+			}
+					
+			escreva("\n")
+		}
+		escreva("\n")
+			
 	}
 
-	funcao logico assentoEscolher(inteiro assentos[][], inteiro assentoLinha, inteiro assentoColuna)
-	{
-		caracter opcao
-		
-		se(assentos[assentoLinha][assentoColuna] == 0)
-		{
-			escreva("Assento escolhido com sucesso! ")
-			assentos[assentoLinha][assentoColuna] = 1
-			listarAssentos(assentos)
-		}
-		senao
-		{
-			escreva("Assento ocupado! Escolha outro")
-		}
-		escreva("\n Deseja voltar ao menu? ")
-		leia(opcao)
-
-		se(opcao == 's' ou opcao == 'S' ) retorne verdadeiro
-		senao retorne falso
-
-		
-			
-	}	
 }
-			
-
-
-			
-	
-
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 997; 
- * @DOBRAMENTO-CODIGO = [53, 82];
+ * @POSICAO-CURSOR = 2117; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
