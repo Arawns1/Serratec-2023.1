@@ -33,3 +33,5 @@
 
 ✅ Aula 07: Funções e Bibliotecas
 
+✅ Aula 08: Funções Recursivas
+
