@@ -3,7 +3,7 @@ programa
 
 	
 	funcao inicio()
-	{	
+	{	
 	
 		
 		//meiaPiramideInversa(10)
@@ -33,7 +33,7 @@ inteiro numvezes = 0
 
 			
 			para(inteiro j=0; j < contador2; j++){
-				escreva("**")
+				escreva(" *")
 			}
 			escreva("\n")
 			contador2++
@@ -105,8 +105,8 @@ inteiro numvezes = 0
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 536; 
- * @DOBRAMENTO-CODIGO = [48, 70, 84];
+ * @POSICAO-CURSOR = 138; 
+ * @DOBRAMENTO-CODIGO = [18, 48, 70, 84];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
