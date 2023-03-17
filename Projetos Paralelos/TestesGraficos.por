@@ -33,7 +33,6 @@ programa
 		
 	}
 
-
 	funcao montarJanela(){
 		g.iniciar_modo_grafico(verdadeiro)
 		g.definir_dimensoes_janela(LARGURA_JANELA, ALTURA_JANELA)
@@ -44,6 +43,7 @@ programa
 		g.definir_cor(g.COR_BRANCO)
 		g.limpar()
 	}
+	
 	funcao Menu(){
 		g.definir_tamanho_texto(20.0)
 		g.definir_cor(g.COR_PRETO)
@@ -217,8 +217,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2607; 
- * @DOBRAMENTO-CODIGO = [41];
+ * @POSICAO-CURSOR = 1440; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
