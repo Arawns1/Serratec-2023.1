@@ -16,6 +16,7 @@ programa
 	inteiro logo_red = g.redimensionar_imagem(logo_imagem, 300, 300, verdadeiro)
 	cadeia opcoes[5] = {"1 - Consulta Ambulatorial", "2 - Internacao", "3 - Listar Dados","4 - Faturamento", "5 - Encerrar programa"}
 	cadeia nome = ""
+	
 	funcao inicio()
 	{
 		
@@ -74,47 +75,41 @@ programa
 
 			se(t.tecla_pressionada(t.TECLA_1))
 			{
-				
-				g.desenhar_texto(centralizar_Menu-20, y_Menu+80+150, "1 - Consulta Ambulatorial")
-				g.definir_cor(g.COR_VERDE)
-				
-				enquanto(nao t.tecla_pressionada(t.TECLA_ESC))
-				{
-					
-					Consulta()
-					g.renderizar()
-				}
-				
+				Consulta()
+			
 	
 			}
 			se(t.tecla_pressionada(t.TECLA_2))
 			{
-				
-				g.desenhar_texto(centralizar_Menu-20, y_Menu+110+150, "2 - Internacao")
-				
+				g.definir_cor(g.COR_VERDE)
+				g.desenhar_texto(190, 370, "2 - Internacao")
 			}
 			se(t.tecla_pressionada(t.TECLA_3))
 			{
-			
-				g.desenhar_texto(centralizar_Menu-20, y_Menu+140+150, "3 - Listar Dados")
-				
+				g.definir_cor(g.COR_VERDE)
+				g.desenhar_texto(190, 410, "3 - Listar Dados")
 			}
 			se(t.tecla_pressionada(t.TECLA_4))
 			{
 				
-				g.desenhar_texto(centralizar_Menu-20, y_Menu+170+150, "4 - Faturamento")
+				g.definir_cor(g.COR_VERDE)
+				g.desenhar_texto(190, 450, "4 - Faturamento")
 				
 			}
 			se(t.tecla_pressionada(t.TECLA_5))
 			{
 				
 				g.definir_cor(g.COR_VERMELHO)
-				g.desenhar_texto(centralizar_Menu-20, y_Menu+200+150, "5 - Encerrar programa")
+				g.desenhar_texto(190, 490, "5 - Encerrar programa")
+				g.encerrar_modo_grafico()
 			}
 		
 	}
+	
 	funcao Consulta()
 	{
+		enquanto(nao(t.tecla_pressionada(t.TECLA_ESC)))
+		{
 		background()
 		Voltar()
 		g.definir_tamanho_texto(20.0)
@@ -130,24 +125,38 @@ programa
 		
 		g.desenhar_texto(80,140, "Telefone do paciente: ")
 		g.desenhar_retangulo(240, 140, 280, 20, falso, falso)
-
-	
-		
-		digitaNome()
+		g.desenhar_texto(10, 10, "X: " + Mouse.posicao_x() + " Y: " + Mouse.posicao_y())
+			digitaNome()
+			g.renderizar()
+		}
 	}
+	
 
 	funcao digitaNome()
 	{
+		g.definir_tamanho_texto(20.0)
+		g.definir_cor(g.COR_PRETO)
+		g.definir_estilo_texto(falso, falso, verdadeiro)
+		g.desenhar_texto(x_Menu+130, y_Menu-50, "Menu Consulta")
+		g.definir_estilo_texto(falso, falso, falso)
+		g.definir_tamanho_texto(16.0)
+		
+		g.definir_cor(g.COR_PRETO)
+		g.desenhar_texto(80,100, "Nome do paciente: ")
+		g.desenhar_retangulo(220, 100, 300, 20, falso, falso)
+		
+		g.desenhar_texto(80,140, "Telefone do paciente: ")
+		g.desenhar_retangulo(240, 140, 280, 20, falso, falso)
+		g.desenhar_texto(10, 10, "X: " + Mouse.posicao_x() + " Y: " + Mouse.posicao_y())
+		
 		se(Texto.numero_caracteres(nome) >= 26)
 		{
 			g.definir_cor(g.COR_VERMELHO)
 			g.definir_estilo_texto(falso, verdadeiro, falso)
-			g.desenhar_texto(120,304, "Nome com número máximo de caracteres!")
-				
-				
+			g.desenhar_texto(120,304, "Nome com número máximo de caracteres!")	
 		}
 		
-		senao se(Teclado.alguma_tecla_pressionada())
+		se(Teclado.alguma_tecla_pressionada())
 		{
 			se(Teclado.tecla_pressionada(127) ou Teclado.tecla_pressionada(8))
 			{
@@ -163,9 +172,6 @@ programa
 		g.definir_estilo_texto(falso, falso, falso)
 		g.desenhar_texto(224,104, nome)
 
-		
-		
-		
 	}
 	funcao Internacao(){}
 	funcao ListarDados(){}
@@ -211,8 +217,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 3773; 
- * @DOBRAMENTO-CODIGO = [35, 40];
+ * @POSICAO-CURSOR = 2607; 
+ * @DOBRAMENTO-CODIGO = [41];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
