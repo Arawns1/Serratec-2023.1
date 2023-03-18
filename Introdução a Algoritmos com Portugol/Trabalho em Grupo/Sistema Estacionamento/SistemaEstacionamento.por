@@ -8,33 +8,40 @@ programa
 		para(inteiro i=0; i < 30; i++){
 				vagas[i][0] ="0"
 		}
-		
-		
 		menu ()
-	}
-	funcao menu () {
-		inteiro opcao
-
-		faca{
-		escreva ("\nDigite uma das opções abaixo: \n1 - Entrada de Veículo	\n2 - Saída de veículo \n3 - Listar vagas\n4 - Sair do Programa\n")
-		leia (opcao)
-
-		escolha (opcao)
-		{
-		caso 1: entrada ()
-		pare
-		caso 2: saida ()
-		pare
-		caso 3: listar ()
-		pare
-		caso 4: escreva ("Fim.")
-		pare
-		caso contrario:
-		escreva ("Opção inválida.")
-		}
-		}enquanto (opcao != 4)
 		
-}
+	}
+	
+	funcao menu () {
+		inteiro opcao 
+		faca{
+			para(inteiro cabecalho=0; cabecalho < 20; cabecalho++){
+				escreva("=-")
+			}
+			escreva("\n     BEM-VINDO AO ESTACIONAMENTO G5 \n")
+			para(inteiro cabecalho=0; cabecalho < 20; cabecalho++){
+				escreva("-=")
+			}
+			escreva ("\nDigite uma das opções abaixo: \n |1 - Entrada de Veículo	\n |2 - Saída de veículo \n |3 - Listar vagas\n |4 - Sair do Programa\n")
+			escreva("Digite sua opção: ")
+			leia (opcao)
+			escolha (opcao)
+			{
+			caso 1: entrada ()
+			pare
+			caso 2: saida ()
+			pare
+			caso 3: listar ()
+			pare
+			caso 4: escreva ("Fim.")
+			pare
+			caso contrario:
+			escreva ("Opção inválida.")
+			}
+		}enquanto (opcao != 4)
+	}
+
+
 	funcao entrada () { 
 		limpa()
 		inteiro numero
@@ -42,6 +49,7 @@ programa
 		
 		escreva ("Digite o número da vaga: ")
 		leia (numero)
+		
 		se (numero>=0 e numero <30){
 			
 			se (vagas[numero][1] == ""){
@@ -51,50 +59,53 @@ programa
 				vagas[numero][0]="1"
 				escreva ("Registrado com sucesso.\n")
 				u.aguarde(1000)
-				menu ()
+				limpa()
 				
-			} senao {
-				escreva ("Vaga ocupada.\n")
-				menu ()}
-			
-			
+			} 
+			senao {
+				escreva ("Vaga ocupada. Tente novamente\n")
+				Util.aguarde(2000)
+				limpa()
+				entrada ()
+			}
 		}
-		senao
-		escreva ("Número de vaga inválido! Digite novamente.\n")
-		Util.aguarde(2000)
-		entrada ()
-		
+		senao{
+			escreva ("Número de vaga inválido! Digite novamente.\n")
+			Util.aguarde(2000)
+			limpa()
+			entrada ()
+		}
 	}
 	funcao saida () {
 		limpa()
 		inteiro numero
 		escreva ("Digite o número da vaga: ")
 		leia(numero)
-		se (numero>=0 e numero <30){
+		se (numero>=0 e numero <30)
+		{
 			
-			se (vagas[numero][1] == "1"){
+			se (vagas[numero][0] == "1")
+			{
 				vagas[numero][1]=""
 				vagas[numero][0]="0"
-				escreva ("Saido com sucesso\n")
+				escreva ("Vaga desocupada com sucesso!\n")
+				espere()
+				limpa()
 				
+			} 
+			senao 
+			{
+				escreva ("A Vaga número ", numero  ," já está vazia.\n")
 				espere()
 				menu()
 				limpa()
-				
-			} senao {
-				escreva ("Vaga já saida\n")
-				espere()
-				limpa()
-				menu()
-				
-				}
-			
-			
+			}
+		} senao
+		{
+			escreva ("Número de vaga inválido! Digite novamente.\n")
+			Util.aguarde(2000)
+			saida ()
 		}
-		senao
-		escreva ("Número de vaga inválido! Digite novamente.\n")
-		Util.aguarde(2000)
-		entrada ()
 	}
 	funcao listar () {
 		limpa()
@@ -104,16 +115,16 @@ programa
 			}
 			se (i <10){
 				se (vagas[i][0] == "1")
-			escreva ("Vaga 0", i, " ocupada  ")
+			escreva ("Vaga 0", i, " ocupada ")
 			
 			se (vagas[i][0] == "0")
-			escreva ("Vaga 0",i," livre  ")
+			escreva (" Vaga 0",i," livre  ")
 			}senao{
 					se (vagas[i][0] == "1")
-			escreva ("Vaga ", i, " ocupada  ")
+			escreva ("Vaga ", i, " ocupada ")
 			
 			se (vagas[i][0] == "0")
-			escreva ("Vaga ",i," livre  ")
+			escreva (" Vaga ",i," livre  ")
 			}
 			}
 			
@@ -144,9 +155,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2595; 
+ * @POSICAO-CURSOR = 1799; 
+ * @DOBRAMENTO-CODIGO = [109];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {vagas, 4, 8, 5}-{numero, 81, 10, 6};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
