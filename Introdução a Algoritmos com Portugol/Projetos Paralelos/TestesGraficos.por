@@ -15,7 +15,8 @@ programa
 	inteiro logo_imagem = g.carregar_imagem("D:\\Drive\\SSD\\Programação\\Serratec\\Serratec-2023.1\\Projetos Paralelos\\media\\logo_XPTO.jpg")
 	inteiro logo_red = g.redimensionar_imagem(logo_imagem, 300, 300, verdadeiro)
 	cadeia opcoes[5] = {"1 - Consulta Ambulatorial", "2 - Internacao", "3 - Listar Dados","4 - Faturamento", "5 - Encerrar programa"}
-	cadeia nome = ""
+	cadeia nome = "", telefone = ""
+
 	
 	funcao inicio()
 	{
@@ -118,61 +119,155 @@ programa
 		g.desenhar_texto(x_Menu+130, y_Menu-50, "Menu Consulta")
 		g.definir_estilo_texto(falso, falso, falso)
 		g.definir_tamanho_texto(16.0)
+
+		//mousePosition
+		mouseScreenPosition()
 		
+		//Nome paciente
 		g.definir_cor(g.COR_PRETO)
 		g.desenhar_texto(80,100, "Nome do paciente: ")
 		g.desenhar_retangulo(220, 100, 300, 20, falso, falso)
 		
+		se(Mouse.posicao_x() >= 220 e Mouse.posicao_x() <= 520)
+		{
+			se(Mouse.posicao_y() >= 100 e Mouse.posicao_y() <= 120)
+			{
+				
+				g.desenhar_texto(224,104, nome)
+				digitaNome()
+			}
+			senao
+			{
+			g.desenhar_texto(224,104, nome)
+			}
+		}
+		senao
+		{
+			g.desenhar_texto(224,104, nome)
+		}
+
+		//Telefone paciente
+		g.definir_cor(g.COR_PRETO)
 		g.desenhar_texto(80,140, "Telefone do paciente: ")
 		g.desenhar_retangulo(240, 140, 280, 20, falso, falso)
-		g.desenhar_texto(10, 10, "X: " + Mouse.posicao_x() + " Y: " + Mouse.posicao_y())
-			digitaNome()
-			g.renderizar()
+		se(Mouse.posicao_x() >= 240 e Mouse.posicao_x() <= 520)
+		{
+			se(Mouse.posicao_y() >= 140 e Mouse.posicao_y() <= 160)
+			{
+				g.desenhar_texto(245,144, telefone)
+				digitaTelefone()		
+			}
+			senao
+			{
+				g.desenhar_texto(245,144, telefone)
+			}
 		}
+		senao
+		{
+			g.desenhar_texto(245,144, telefone)
+		}
+		
+		g.renderizar()	
+		}
+		nome = ""
+		telefone = ""
+	}
+	funcao mouseScreenPosition()
+	{
+		g.desenhar_texto(10, 10, "X: " + Mouse.posicao_x() + " Y: " + Mouse.posicao_y())
 	}
 	
+	funcao digitaTelefone()
+	{
+		g.definir_cor(g.COR_AZUL)
+		g.desenhar_retangulo(240, 140, 280, 20, falso, falso)
+		g.definir_cor(g.COR_PRETO)
+		g.definir_estilo_texto(falso, verdadeiro, verdadeiro)
+		
+		g.definir_cor(g.COR_AZUL)
+		g.definir_tamanho_texto(16.0)
+		g.desenhar_texto(80,140, "Telefone do paciente")
+		g.definir_estilo_texto(falso, falso, falso)
 
+		se(Teclado.tecla_pressionada(127) ou Teclado.tecla_pressionada(8))
+		{
+			telefone = ""
+				
+		}
+		
+		se(Texto.numero_caracteres(telefone) > 15)
+		{
+			g.definir_cor(g.COR_VERMELHO)
+			g.definir_tamanho_texto(12.0)
+			g.definir_estilo_texto(falso, verdadeiro, falso)
+			g.desenhar_texto(325,168, "Número inválido")	
+			g.definir_cor(g.COR_VERMELHO)	
+			g.definir_tamanho_texto(16.0)
+			g.definir_cor(g.COR_VERMELHO)
+			g.definir_estilo_texto(falso, verdadeiro, verdadeiro)
+			g.desenhar_texto(80,140, "Telefone do paciente")
+			g.definir_estilo_texto(falso, falso, verdadeiro)
+			g.desenhar_retangulo(240, 140, 280, 20, falso, falso)
+		}
+		senao{
+			se(Teclado.alguma_tecla_pressionada() e nao(Teclado.tecla_pressionada(127) ou Teclado.tecla_pressionada(8)))
+			{
+				telefone += Teclado.caracter_tecla(Teclado.ler_tecla())
+			}
+		}
+
+		g.definir_estilo_texto(falso, falso, falso)
+		g.desenhar_texto(245,144, telefone)
+		
+	}
 	funcao digitaNome()
 	{
-		g.definir_tamanho_texto(20.0)
-		g.definir_cor(g.COR_PRETO)
-		g.definir_estilo_texto(falso, falso, verdadeiro)
-		g.desenhar_texto(x_Menu+130, y_Menu-50, "Menu Consulta")
-		g.definir_estilo_texto(falso, falso, falso)
-		g.definir_tamanho_texto(16.0)
 		
-		g.definir_cor(g.COR_PRETO)
-		g.desenhar_texto(80,100, "Nome do paciente: ")
+		g.definir_cor(g.COR_AZUL)
 		g.desenhar_retangulo(220, 100, 300, 20, falso, falso)
+		g.definir_cor(g.COR_PRETO)
+		g.definir_estilo_texto(falso, verdadeiro, verdadeiro)
 		
-		g.desenhar_texto(80,140, "Telefone do paciente: ")
-		g.desenhar_retangulo(240, 140, 280, 20, falso, falso)
-		g.desenhar_texto(10, 10, "X: " + Mouse.posicao_x() + " Y: " + Mouse.posicao_y())
-		
+		g.definir_cor(g.COR_AZUL)
+		g.definir_tamanho_texto(16.0)
+		g.desenhar_texto(80,100, "Nome do paciente")
+		g.definir_estilo_texto(falso, falso, falso)
+
+		se(Teclado.tecla_pressionada(127) ou Teclado.tecla_pressionada(8))
+		{
+			nome = ""
+				
+		}
+				
 		se(Texto.numero_caracteres(nome) >= 26)
 		{
 			g.definir_cor(g.COR_VERMELHO)
+			g.definir_tamanho_texto(12.0)
 			g.definir_estilo_texto(falso, verdadeiro, falso)
-			g.desenhar_texto(120,304, "Nome com número máximo de caracteres!")	
+			g.desenhar_texto(250,82, "Nome com número máximo de caracteres!")
+			g.definir_cor(g.COR_VERMELHO)	
+			g.definir_tamanho_texto(16.0)
+			g.definir_cor(g.COR_VERMELHO)
+			g.definir_estilo_texto(falso, verdadeiro, verdadeiro)
+			g.desenhar_texto(80,100, "Nome do paciente")
+			g.definir_estilo_texto(falso, falso, verdadeiro)
+			g.desenhar_retangulo(220, 100, 300, 20, falso, falso)
 		}
-		
-		se(Teclado.alguma_tecla_pressionada())
-		{
-			se(Teclado.tecla_pressionada(127) ou Teclado.tecla_pressionada(8))
+		senao{
+			se(Teclado.alguma_tecla_pressionada() e nao(Teclado.tecla_pressionada(127) ou Teclado.tecla_pressionada(8)))
 			{
-				nome = " "
-			
-			}
-			
-			senao {
 				nome += Teclado.caracter_tecla(Teclado.ler_tecla())
 			}
 		}
+		
+		
 		
 		g.definir_estilo_texto(falso, falso, falso)
 		g.desenhar_texto(224,104, nome)
 
 	}
+	
+	
 	funcao Internacao(){}
 	funcao ListarDados(){}
 	funcao verificaMouse()
@@ -217,7 +312,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1440; 
+ * @POSICAO-CURSOR = 3931; 
+ * @DOBRAMENTO-CODIGO = [174, 179, 222];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
