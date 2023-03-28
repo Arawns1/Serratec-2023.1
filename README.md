@@ -9,8 +9,8 @@
 <p> Residente 2023.1 </p>
 
 <h2> Matérias </h2>
-<hr>
 <ul>
-<li>Lógica de programação com portugol - Roni
-<li> Banco de Dados - Maria Luiza Mondelli
+<li>Lógica de programação com portugol - Roni 
+<li> Banco de Dados(Postgree/SQLite) - Maria Luiza Mondelli
+<li> Java POO - Marcelo Colares
 </ul>
