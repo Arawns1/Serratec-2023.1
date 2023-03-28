@@ -30,18 +30,6 @@ create table usuario(
 	foreign key(id_endereco) references endereco(id)
 );
 
-create table comprador(
-	id integer primary key autoincrement not null,
-	id_comprador integer,
-	foreign key(id_comprador) references usuario(id)
-);
-
-create table vendedor(
-	id integer primary key autoincrement not null,
-	id_vendedor integer,
-	foreign key(id_vendedor) references usuario(id)
-);
-
 create table produto(
 	id integer primary key autoincrement not null,
 	nome text not null,
@@ -56,13 +44,14 @@ create table pedido(
 	id integer primary key autoincrement not null,
 	id_comprador integer,
 	data_compra text,
-	foreign key(id_comprador) references comprador(id)
+	foreign key(id_comprador) references usuario(id),
 );
 
 create table vendedor_produto(
 	id integer primary key autoincrement not null,
 	id_vendedor integer,
 	id_produto integer,
+	quantidade_estoque integer not null,
 	foreign key(id_vendedor) references vendedor(id),
 	foreign key(id_produto) references produto(id)
 );
