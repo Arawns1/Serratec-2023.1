@@ -32,29 +32,13 @@ values
 ('Calça super leg', 'A calça mais leg do Brasil', '1/2/2023', 249.99, 4),
 ('Mesa', 'Mesa de jantar do milênio', '1/1/2001', 499.99, 5);
 
-insert into vendedor (id_vendedor) 
+insert into vendedor_produto (id_vendedor, id_produto, quantidade_estoque) 
 values 
-(1),
-(2),
-(3),
-(4),
-(5);
-
-insert into comprador (id_comprador) 
-values 
-(1),
-(2),
-(3),
-(4),
-(5);
-
-insert into vendedor_produto (id_vendedor, id_produto) 
-values 
-(1 , 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5);
+(1 , 1, 3),
+(2, 2, 3),
+(3, 3, 4),
+(4, 4, 9),
+(5, 5, 4);
 
 insert into pedido (id_comprador, data_compra) 
 values
@@ -63,6 +47,7 @@ values
 (3, '22/2/23'),
 (4, '23/2/23'),
 (5, '24/2/23');
+
 
 insert into pedido_produto (id_pedido, id_produto, quantidade_produto)
 values
