@@ -1,4 +1,3 @@
-
 select p.data_compra, u.nome as "cliente", 
 	   p.id as "pedido id", 
 	   vp.id_vendedor as "vendedor",
@@ -19,3 +18,5 @@ on p.id_comprador = u.id
 
 inner join vendedor_produto vp 
 on pr.id = vp.id
+
+where p.id = 3
