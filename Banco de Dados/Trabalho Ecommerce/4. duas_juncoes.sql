@@ -1,5 +1,4 @@
 -- JOIN Usuario - Endereco
-SELECT * from endereco e2 
 select u.id, 
 u.nome,
 u.nome_usuario, 
