@@ -8,7 +8,7 @@ create table endereco(
 	cidade text,
 	bairro text,
 	rua text,
-	numero text,
+	numero text not null,
 	complemento text
 );
 
