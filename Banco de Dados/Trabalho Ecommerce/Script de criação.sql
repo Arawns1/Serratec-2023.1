@@ -44,7 +44,7 @@ create table pedido(
 	id integer primary key autoincrement not null,
 	id_comprador integer,
 	data_compra text,
-	foreign key(id_comprador) references usuario(id),
+	foreign key(id_comprador) references usuario(id)
 );
 
 create table vendedor_produto(
