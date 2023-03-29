@@ -1,4 +1,5 @@
-select p.data_compra, u.nome as "cliente", 
+select
+	   p.data_compra, u.nome as "cliente", 
 	   p.id as "pedido id", 
 	   vp.id_vendedor as "vendedor",
 	   pp.id_produto, pr.nome as "nome produto",
@@ -19,4 +20,4 @@ on p.id_comprador = u.id
 inner join vendedor_produto vp 
 on pr.id = vp.id
 
-where p.id = 3
+order by p.data_compra asc
