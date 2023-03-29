@@ -52,7 +52,7 @@ create table vendedor_produto(
 	id_vendedor integer,
 	id_produto integer,
 	quantidade_estoque integer not null,
-	foreign key(id_vendedor) references vendedor(id),
+	foreign key(id_vendedor) references usuario(id),
 	foreign key(id_produto) references produto(id)
 );
 
