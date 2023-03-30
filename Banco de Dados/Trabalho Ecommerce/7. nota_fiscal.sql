@@ -1,3 +1,4 @@
+-- Criando View
 create view nota_fiscal_view as
 	select
 		   p.data_compra, 
@@ -28,6 +29,7 @@ create view nota_fiscal_view as
 	on uv.id = vp.id_vendedor
 
 	order by p.data_compra asc
-
+	
+-- Executando View
 select * from nota_fiscal_view
 where "pedido id" = 2
