@@ -21,7 +21,7 @@ public class BalancoPatrimonial {
 		}
 		
 		public BalancoPatrimonial(double gastosJaneiro, double gastosFevereiro, double gastosMarco, double gastosAbril,
-				double gastosMaio, double gastosJunho, double gastosJulho)
+								  double gastosMaio, double gastosJunho, double gastosJulho)
 		{
 			System.out.println("Objeto criado com sucesso!");
 			this.gastosJaneiro = gastosJaneiro;
@@ -36,7 +36,7 @@ public class BalancoPatrimonial {
 		
 		public double somarGastos() {
 			double totalPeriodo;
-			totalPeriodo = gastosJaneiro + gastosFevereiro + gastosMarco+gastosAbril+gastosMaio+gastosJunho+gastosJulho;
+			totalPeriodo = this.gastosJaneiro + this.gastosFevereiro + this.gastosMarco+this.gastosAbril+this.gastosMaio+this.gastosJunho+this.gastosJulho;
 			return totalPeriodo;
 		}
 
