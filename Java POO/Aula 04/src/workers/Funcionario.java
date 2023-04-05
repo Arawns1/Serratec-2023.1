@@ -5,13 +5,18 @@ public class Funcionario {
 	protected String CPF;
 	protected double salario;
 	protected int matricula;
-	
-	
+	protected static int totalDeFuncionarios;
+
 	public Funcionario(String nome, String CPF, double salario, int matricula) {
 		this.nome = nome;
 		this.CPF = CPF;
 		this.matricula = matricula;
 		this.salario = salario;
+		totalDeFuncionarios++;
+	}
+
+	public Funcionario() {
+		totalDeFuncionarios++;
 	}
 
 	public String getNome() {
@@ -37,18 +42,14 @@ public class Funcionario {
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
-	
+
 	public int getMatricula() {
 		return matricula;
-	}
-
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
 	}
 
 	@Override
 	public String toString() {
 		return "Funcionario [name=" + nome + ", CPF=" + CPF + ", salario=" + salario + "]";
 	}
-	
+
 }

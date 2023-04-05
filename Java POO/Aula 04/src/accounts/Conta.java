@@ -5,15 +5,14 @@ public class Conta {
 	protected String titular;
 	protected int numero;
 	protected int agencia;
-	protected double saldo; 
+	protected double saldo;
 	protected String tipo;
 	protected static int totalDeContas;
-	
-	public Conta()
-	{
-		
+
+	public Conta() {
+
 	};
-	
+
 	public Conta(String titular, int agencia, double saldo, String tipo) {
 		super();
 		this.titular = titular;
@@ -23,7 +22,7 @@ public class Conta {
 		this.tipo = tipo;
 		Conta.totalDeContas++;
 	}
-	
+
 	public Conta(String titular, int agencia, double saldo) {
 		super();
 		this.titular = titular;
@@ -33,38 +32,33 @@ public class Conta {
 		Conta.totalDeContas++;
 	}
 
-	public void sacar(double valor) 
-	{
-		if(this.saldo < valor) {
+	public void sacar(double valor) {
+		if (this.saldo < valor) {
 			System.out.println("Saldo insuficiente! ");
-		}
-		else {
+		} else {
 			this.saldo -= valor;
 			System.out.println("Seu novo saldo é: " + this.saldo);
 		}
-		
+
 	};
-	
-	
-	public void depositar(double valor) 
-	{
+
+	public void depositar(double valor) {
 		this.saldo += valor;
-		System.out.println("Seu novo saldo é: "+ this.saldo);
+		System.out.println("Seu novo saldo é: " + this.saldo);
 	};
-	
-	public void transferir(Conta destinatario, double valor) 
-	{
-	; 	this.saldo -= valor; // Retira o valor da conta de origem
-		destinatario.saldo += valor; //Aumenta o saldo da conta destinatario;
+
+	public void transferir(Conta destinatario, double valor) {
+		;
+		this.saldo -= valor; // Retira o valor da conta de origem
+		destinatario.saldo += valor; // Aumenta o saldo da conta destinatario;
 		System.out.println("Transferência para " + destinatario.titular + " realizada com sucesso!");
 	};
-	
-	public String imprimir() 
-	{
+
+	public String imprimir() {
 		return "Conta [titular=" + titular + ", numero=" + numero + ", agencia=" + agencia + ", saldo=" + saldo
 				+ ", tipo=" + tipo + "]";
 	}
-		
+
 	public static int getTotalDeContas() {
 		return totalDeContas;
 	}
@@ -76,8 +70,6 @@ public class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
-	
-	
 
 	public String getTitular() {
 		return titular;
@@ -120,8 +112,5 @@ public class Conta {
 		return "Conta [titular=" + titular + ", numero=" + numero + ", agencia=" + agencia + ", saldo=" + saldo
 				+ ", tipo=" + tipo + "]";
 	}
-	
-	
 
-	
 }

@@ -1,11 +1,11 @@
 package accounts;
 
-public class ContaCorrenteEspecial extends ContaCorrente{
+public class ContaCorrenteEspecial extends ContaCorrente {
 	private int numeroCartaoCredito;
 	private String nomeCartaoCredito;
 	private double investimento;
 	private static int totalCartaoCredito;
-	
+
 	public ContaCorrenteEspecial(String titular, int agencia, double saldo, double limite, double investimento) {
 		super(titular, agencia, saldo, limite);
 		this.nomeCartaoCredito = titular;
@@ -15,46 +15,37 @@ public class ContaCorrenteEspecial extends ContaCorrente{
 		this.investimento = investimento;
 	}
 
-	
 	public int getNumeroCartaoCredito() {
 		return numeroCartaoCredito;
 	}
-
 
 	public void setNumeroCartaoCredito(int numeroCartaoCredito) {
 		this.numeroCartaoCredito = numeroCartaoCredito;
 	}
 
-
 	public String getNomeCartaoCredito() {
 		return nomeCartaoCredito;
 	}
-
 
 	public void setNomeCartaoCredito(String nomeCartaoCredito) {
 		this.nomeCartaoCredito = nomeCartaoCredito;
 	}
 
-
 	public double getInvestimento() {
 		return investimento;
 	}
-
 
 	public void setInvestimento(double investimento) {
 		this.investimento = investimento;
 	}
 
-
 	public static int getTotalCartaoCredito() {
 		return totalCartaoCredito;
 	}
 
-
 	public static void setTotalCartaoCredito(int totalCartaoCredito) {
 		ContaCorrenteEspecial.totalCartaoCredito = totalCartaoCredito;
 	}
-
 
 	@Override
 	public String toString() {
