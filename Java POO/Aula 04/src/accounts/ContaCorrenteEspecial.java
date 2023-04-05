@@ -1,4 +1,4 @@
-package Entities;
+package accounts;
 
 public class ContaCorrenteEspecial extends ContaCorrente{
 	private int numeroCartaoCredito;
@@ -6,8 +6,8 @@ public class ContaCorrenteEspecial extends ContaCorrente{
 	private double investimento;
 	private static int totalCartaoCredito;
 	
-	public ContaCorrenteEspecial(String titular, int numero, int agencia, double saldo, double limite, double investimento) {
-		super(titular, numero, agencia, saldo, limite);
+	public ContaCorrenteEspecial(String titular, int agencia, double saldo, double limite, double investimento) {
+		super(titular, agencia, saldo, limite);
 		this.nomeCartaoCredito = titular;
 		this.numeroCartaoCredito = ContaCorrenteEspecial.totalCartaoCredito;
 		ContaCorrenteEspecial.totalCartaoCredito++;

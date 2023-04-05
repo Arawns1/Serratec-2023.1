@@ -1,4 +1,4 @@
-package Entities;
+package accounts;
 
 public class Conta {
 
@@ -7,32 +7,31 @@ public class Conta {
 	protected int agencia;
 	protected double saldo; 
 	protected String tipo;
-	private static int totalDeContas = 0;
+	protected static int totalDeContas;
 	
 	public Conta()
 	{
 		
 	};
 	
-	public Conta(String titular, int numero, int agencia, double saldo, String tipo) {
+	public Conta(String titular, int agencia, double saldo, String tipo) {
 		super();
-		Conta.totalDeContas++;
 		this.titular = titular;
-		this.numero = numero;
+		this.numero = totalDeContas;
 		this.agencia = agencia;
 		this.saldo = saldo;
 		this.tipo = tipo;
+		Conta.totalDeContas++;
 	}
 	
-	public Conta(String titular, int numero, int agencia, double saldo) {
+	public Conta(String titular, int agencia, double saldo) {
 		super();
-		Conta.totalDeContas++;
 		this.titular = titular;
-		this.numero = numero;
+		this.numero = totalDeContas;
 		this.agencia = agencia;
 		this.saldo = saldo;
+		Conta.totalDeContas++;
 	}
-	
 
 	public void sacar(double valor) 
 	{
@@ -46,11 +45,6 @@ public class Conta {
 		
 	};
 	
-	/**
-	* Realiza o depósito na conta instanciada
-	*
-	* @param valor a ser depositado na conta
-	*/
 	
 	public void depositar(double valor) 
 	{

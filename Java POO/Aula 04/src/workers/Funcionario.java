@@ -1,4 +1,4 @@
-package Entities;
+package workers;
 
 public class Funcionario {
 	protected String nome;

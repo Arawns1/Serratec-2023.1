@@ -1,4 +1,4 @@
-package Entities;
+package accounts;
 
 public class ContaPoupanca extends Conta {
 
@@ -9,10 +9,10 @@ public class ContaPoupanca extends Conta {
 		
 	}
 	
-	public ContaPoupanca(String titular, int numero, int agencia, double saldo, double rendimento) {
-		super(titular, numero, agencia, saldo);
+	public ContaPoupanca(String titular, int agencia, double saldo, double rendimento) {
+		super(titular, agencia, saldo);
 		this.tipo = "Poupança";
-		this.rendimento = rendimento/100; 
+		this.rendimento = rendimento/100;
 	}
 	
 	public void renderSaldo() 

@@ -1,11 +1,9 @@
 package App;
-import Entities.Conta;
-import Entities.ContaCorrente;
-import Entities.ContaCorrenteEspecial;
-//import Entities.Conta;
-import Entities.ContaPoupanca;
-//import Entities.Gerente;
-import Entities.ContaPoupancaEspecial;
+import accounts.Conta;
+import accounts.ContaCorrente;
+import accounts.ContaCorrenteEspecial;
+import accounts.ContaPoupanca;
+import accounts.ContaPoupancaEspecial;
 
 public class Principal {
 
@@ -32,11 +30,11 @@ public static void main(String[] args) {
 		System.out.println(g1);*/
 		
 		//nome, agencia, conta, saldo, rendimento%
-		ContaPoupanca MinhaCP = new ContaPoupanca("Gabriel", 10, 1234, 1000, 10);
-		ContaCorrente MinhaCC = new ContaCorrente("Rodolpho", 11, 1239, 9999, 100);
-		ContaPoupancaEspecial MinhaPE = new ContaPoupancaEspecial("Vitor", 12, 1033, 900, 10);
-		ContaCorrenteEspecial MinhaCE = new ContaCorrenteEspecial("Maria", 13, 1031, 1000, 2000, 100);
-		ContaCorrenteEspecial MinhaCE2 = new ContaCorrenteEspecial("Tamirys", 14, 1032, 120, 100, 50);
+		ContaPoupanca MinhaCP = new ContaPoupanca("Gabriel", 1234, 1000, 10);
+		ContaCorrente MinhaCC = new ContaCorrente("Rodolpho",  1239, 9999, 100);
+		ContaPoupancaEspecial MinhaPE = new ContaPoupancaEspecial("Vitor",  1033, 900, 10);
+		ContaCorrenteEspecial MinhaCE = new ContaCorrenteEspecial("Maria",  1031, 1000, 2000, 100);
+		ContaCorrenteEspecial MinhaCE2 = new ContaCorrenteEspecial("Tamirys",  1032, 120, 100, 50);
 		System.out.println(MinhaCP);
 		System.out.println(MinhaCC);
 		System.out.println(MinhaPE);

@@ -1,4 +1,4 @@
-package Entities;
+package accounts;
 
 public class ContaCorrente extends Conta {
 
@@ -7,8 +7,8 @@ public class ContaCorrente extends Conta {
 	
 	public ContaCorrente(){}
 	
-	public ContaCorrente(String titular, int numero, int agencia, double saldo, double limite) {
-		super(titular, numero, agencia, saldo);
+	public ContaCorrente(String titular, int agencia, double saldo, double limite) {
+		super(titular, agencia, saldo);
 		this.tipo = "Corrente";
 		this.limite = limite;
 	}

@@ -1,12 +1,12 @@
-package Entities;
+package accounts;
 
 public class ContaPoupancaEspecial extends ContaPoupanca{
 	private String nomeCartao;
 	private int numeroCartao;
 	private static int totalCartao;
 	
-	public ContaPoupancaEspecial(String titular, int numero, int agencia, double saldo, double rendimento) {
-		super(titular, numero, agencia, saldo, rendimento);
+	public ContaPoupancaEspecial(String titular, int agencia, double saldo, double rendimento) {
+		super(titular,  agencia, saldo, rendimento);
 		this.nomeCartao = titular;
 		this.numeroCartao = ContaPoupancaEspecial.totalCartao;
         ContaPoupancaEspecial.totalCartao++;
@@ -52,7 +52,12 @@ public class ContaPoupancaEspecial extends ContaPoupanca{
 
 	@Override
 	public String toString() {
-		return "ContaPoupancaEspecial [numeroCartao=" + numeroCartao + ", nomeCartao=" + nomeCartao + ", rendimento="
-				+ rendimento + "]";
+		return "ContaPoupancaEspecial [nomeCartao=" + nomeCartao + ", numeroCartao=" + numeroCartao + ", rendimento="
+				+ rendimento + ", titular=" + titular + ", numero=" + numero + ", agencia=" + agencia + ", saldo="
+				+ saldo + ", tipo=" + tipo + "]";
 	}
+	
+	
+
+	
 }

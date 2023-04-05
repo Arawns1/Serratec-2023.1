@@ -1,4 +1,4 @@
-package Entities;
+package workers;
 
 public class Gerente extends Funcionario {
 
