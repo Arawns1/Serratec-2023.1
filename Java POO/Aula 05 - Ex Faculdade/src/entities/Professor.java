@@ -19,7 +19,7 @@ public class Professor extends Empregado {
 
 	@Override
 	public double getGastos() {
-		return this.salario + this.horasDeAula*10;
+		return super.getSalario() + this.horasDeAula*10;
 	}
 
 	@Override
