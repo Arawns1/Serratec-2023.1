@@ -8,7 +8,7 @@ public abstract class Conta implements ContaFacil{
 	protected double saldo;
 	protected String tipo;
 	protected static int totalDeContas;
-
+/testeoisahiuadhash
 	public Conta() {
 	};
 
