@@ -8,5 +8,5 @@
 <ul>
 <li>Lógica de programação com portugol - Roni 
 <li> Banco de Dados(Postgree/SQLite) - Maria Luiza Mondelli
-<li> Java POO - Marcelo Colares
+<li> ![Java POO - Marcelo Colares] (https://github.com/Arawns1/Serratec-2023.1/tree/main/Java%20POO)
 </ul>
