@@ -1,6 +1,6 @@
 package workers;
 
-public class Funcionario {
+public abstract class Funcionario {
 	protected String nome;
 	protected String CPF;
 	protected double salario;
@@ -15,9 +15,6 @@ public class Funcionario {
 		totalDeFuncionarios++;
 	}
 
-	public Funcionario() {
-		totalDeFuncionarios++;
-	}
 
 	public String getNome() {
 		return nome;
@@ -49,11 +46,13 @@ public class Funcionario {
 
 	public double getBonificacao() {
 		return this.getSalario() * 0.1;
-	};
+	}
+
 
 	@Override
 	public String toString() {
-		return "Funcionario [name=" + nome + ", CPF=" + CPF + ", salario=" + salario + "]";
-	}
+		return "Funcionario [nome=" + nome + ", CPF=" + CPF + ", salario=" + salario + ", matricula=" + matricula + "]";
+	};
+
 
 }
