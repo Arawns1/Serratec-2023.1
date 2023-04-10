@@ -3772,7 +3772,7 @@
 							"font": "Arial;13;0",
 							"left": 184,
 							"top": 383,
-							"width": 31.68359375,
+							"width": 29.5,
 							"height": 25,
 							"autoResize": true,
 							"text": "1..1"
@@ -4250,7 +4250,7 @@
 											"width": 210.63427734375,
 											"height": 13,
 											"underline": true,
-											"text": "+TotalDeFuncionarios: int",
+											"text": "#TotalDeFuncionarios: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7464,6 +7464,7 @@
 												"$ref": "AAAAAAGHWPKByAuFJDo="
 											},
 											"name": "TotalDeFuncionarios",
+											"visibility": "protected",
 											"isStatic": true,
 											"type": "int"
 										}
