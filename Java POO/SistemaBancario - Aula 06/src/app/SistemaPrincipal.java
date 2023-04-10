@@ -20,7 +20,8 @@ public class SistemaPrincipal {
 		CC.transferir(CP, 20);
 		
 		CP.getSaldo();
-		
+		CP.imprimeExtrato();
+		System.out.println("-".repeat(40));
 		System.out.println(CC);
 		System.out.println(CP);
 		
