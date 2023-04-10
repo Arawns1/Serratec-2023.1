@@ -6,7 +6,7 @@ public abstract class Funcionario extends Pessoa {
 	
 	protected double salario;
 	protected int matricula;
-	protected static int totalDeFuncionarios;
+	private static int totalDeFuncionarios;
 	
 	/**
 	 * Cria uma nova derivação de funcionario
