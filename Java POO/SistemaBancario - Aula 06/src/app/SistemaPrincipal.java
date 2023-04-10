@@ -29,6 +29,7 @@ public class SistemaPrincipal {
 		
 		Funcionario f = new Diretor("Gabriel", "Damico", "12221212", "222222222", "gabriel@gmail.com", 1000.0, 10, 1234);
 		
+		
 		System.out.println(); // pular linha
 		System.out.println("---- Visão de QUALQUER funcionário ----");
 		
