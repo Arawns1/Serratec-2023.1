@@ -11,7 +11,9 @@ public class OperadorDeCaixa extends Funcionario {
 	@Override
 	public String toString() {
 		return "OperadorDeCaixa [salario=" + salario + ", matricula=" + matricula + ", nome=" + nome + ", sobrenome="
-				+ sobrenome + ", CPF=" + CPF + ", telefone=" + telefone + ", email=" + email + "]";
+				+ sobrenome + ", CPF=" + CPF + ", telefone=" + telefone + ", email=" + email + ", senha=" + senha + "]";
 	}
+
+	
 
 }

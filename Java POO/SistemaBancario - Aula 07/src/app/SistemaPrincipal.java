@@ -3,6 +3,7 @@ package app;
 import accounts.Conta;
 import accounts.corrente.ContaCorrente;
 import accounts.poupanca.ContaPoupancaEspecial;
+import people.Cliente;
 import people.Pessoa;
 import people.workers.Diretor;
 import people.workers.Funcionario;
@@ -23,8 +24,12 @@ public class SistemaPrincipal {
 		// TODO Verificação de dados.
 		
 		Menu.cadastrarCliente();
-		Pessoa.mostrarPessoas();
-		//Menu.login();
+		Menu.cadastrarFuncionario();
+		Menu.mostrarMap();
+		
+		Menu.login();
+		Menu.login();
+		
 		//Menu.login();
 		//Menu.ContaCliente(CC);
 		

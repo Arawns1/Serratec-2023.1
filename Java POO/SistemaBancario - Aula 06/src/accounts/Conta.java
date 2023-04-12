@@ -10,7 +10,7 @@ public abstract class Conta implements IConta {
 	protected double saldo;
 	protected String tipo;
 	protected static int totalDeContas;
-
+	
 	public Conta(String titular, int numero, int agencia, double saldo, String tipo) {
 		this.titular = titular;
 		this.numero = numero;

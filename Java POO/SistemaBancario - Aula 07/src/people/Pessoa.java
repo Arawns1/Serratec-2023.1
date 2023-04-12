@@ -1,9 +1,5 @@
 package people;
 
-import java.util.ArrayList;
-
-import accounts.Conta;
-
 public abstract class Pessoa {
 	protected String nome;
 	protected String sobrenome;
@@ -12,7 +8,6 @@ public abstract class Pessoa {
 	protected String email;
 	protected int senha;
 	
-	public static ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
 	public Pessoa(String nome, String sobrenome, String cPF, String telefone, String email, int senha) {
 		this.nome = nome;
@@ -22,6 +17,8 @@ public abstract class Pessoa {
 		this.email = email;
 		this.senha = senha;
 	}
+	
+	public Pessoa() {};
 
 	public String getNome() {
 		return nome;
@@ -71,11 +68,6 @@ public abstract class Pessoa {
 		this.senha = senha;
 	}
 
-	public static void mostrarPessoas() {
-		for (Pessoa pessoa : pessoas) {
-			System.out.println(pessoa);
-		}
-	}
 	
 	@Override
 	public String toString() {
