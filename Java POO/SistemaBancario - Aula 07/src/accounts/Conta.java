@@ -1,7 +1,10 @@
 package accounts;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+
+import people.Cliente;
 
 public abstract class Conta implements IConta {
 	protected String titular;
@@ -10,6 +13,9 @@ public abstract class Conta implements IConta {
 	protected double saldo;
 	protected String tipo;
 	protected static int totalDeContas;
+	
+	
+	
 
 	public Conta(String titular, int numero, int agencia, double saldo, String tipo) {
 		this.titular = titular;
@@ -32,7 +38,6 @@ public abstract class Conta implements IConta {
 		} else {
 			this.saldo += valor;
 			System.out.println("Depósito realizado com sucesso!");
-			System.out.println("Seu novo saldo é: R$" + this.getSaldo());
 		}
 	}
 
@@ -43,7 +48,6 @@ public abstract class Conta implements IConta {
 
 		this.saldo -= valor;
 		System.out.println("Saque realizado com sucesso!");
-		System.out.println("Seu novo saldo é: R$" + this.getSaldo());
 
 	}
 
@@ -59,9 +63,6 @@ public abstract class Conta implements IConta {
 		this.saldo -= valor;
 		destino.saldo += valor;
 		System.out.println("Transferência realizada com sucesso!");
-		System.out.println("Seu novo saldo é: R$" + this.getSaldo());
-		System.out.println("Saldo insuficiente para completar a transação!");
-
 	}
 
 	public void imprimeExtrato() {
@@ -71,6 +72,7 @@ public abstract class Conta implements IConta {
 		System.out.println("Saldo: " + this.getSaldo());
 		System.out.println("Data: " + sdf.format(date));
 	}
+	
 
 	// Getters and Setters
 	public String getTitular() {

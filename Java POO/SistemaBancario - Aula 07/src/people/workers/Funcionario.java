@@ -18,18 +18,20 @@ public abstract class Funcionario extends Pessoa {
 	 * @param salario
 	 * @param matricula
 	 */
-	public Funcionario(String nome, String sobrenome, String cPF, String telefone, String email, double salario,
-			int matricula) {
-		super(nome, sobrenome, cPF, telefone, email);
-		this.salario = salario;
-		this.matricula = matricula;
-		totalDeFuncionarios++;
-	}
+
 
 	public double getBonificacao(){
 		return this.salario * 0.1;
 	}
 	
+	public Funcionario(String nome, String sobrenome, String cPF, String telefone, String email, int senha,
+			double salario, int matricula) {
+		super(nome, sobrenome, cPF, telefone, email, senha);
+		this.salario = salario;
+		this.matricula = matricula;
+		totalDeFuncionarios++;
+	}
+
 	public double getSalario() {
 		return salario;
 	}

@@ -2,9 +2,10 @@ package people.workers;
 
 public class OperadorDeCaixa extends Funcionario {
 	
-	public OperadorDeCaixa(String nome, String sobrenome, String cPF, String telefone, String email, double salario,
-			int matricula) {
-		super(nome, sobrenome, cPF, telefone, email, salario, matricula);
+
+	public OperadorDeCaixa(String nome, String sobrenome, String cPF, String telefone, String email, int senha,
+			double salario, int matricula) {
+		super(nome, sobrenome, cPF, telefone, email, senha, salario, matricula);
 	}
 
 	@Override
