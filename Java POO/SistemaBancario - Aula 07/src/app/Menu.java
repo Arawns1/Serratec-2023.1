@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -17,7 +18,19 @@ import people.workers.OperadorDeCaixa;
 public class Menu {
 
 	private static Map<String, Pessoa> loginInfo = new HashMap<>();
-
+	
+	private static Map<String, Integer> teste = new HashMap<>();
+	
+	public static void testeMap(String s, Integer i) {
+		teste.put(s, i);
+	}
+	public static void mostraTeste() {
+		for(String cpf : teste.keySet()) {
+			System.out.println(cpf + " : " + teste.get(cpf));
+		}
+	}
+	
+	
 	public static void login() {
 		Scanner sc = new Scanner(System.in);
 
@@ -40,7 +53,7 @@ public class Menu {
 				System.out.println("Senha incorreta");
 			}
 		} else {
-			System.out.println("CPF incorreto!");
+			System.out.println("CPF Inexistente!");
 		}
 
 	}
@@ -75,14 +88,10 @@ public class Menu {
 		int matricula = sc.nextInt();
 
 		Funcionario f = new OperadorDeCaixa(nome, sobrenome, CPF, telefone, email, senha, salario, matricula);
-
-		if (loginInfo.containsKey(CPF)) {
-			System.out.println("CPF já cadastrado!");
-		} else {
+		
 			Funcionario.addFuncionario(f);
 			loginInfo.put(CPF, f);
 			System.out.println("Funcionario cadastrado com sucesso!");
-		}
 
 	}
 
@@ -111,14 +120,9 @@ public class Menu {
 		int senha = sc.nextInt();
 
 		Cliente p = new Cliente(null, null, CPF, null, null, senha);
-		List<Pessoa> l2 = new ArrayList<>();
-		if (loginInfo.containsKey(CPF)) {
-			System.out.println("CPF já cadastrado!");
-		} else {
 			Cliente.addCliente(p);
 			loginInfo.put(CPF, p);
 			System.out.println("Cliente cadastrado com sucesso!");
-		}
 
 	}
 

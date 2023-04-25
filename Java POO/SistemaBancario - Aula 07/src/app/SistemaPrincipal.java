@@ -23,12 +23,18 @@ public class SistemaPrincipal {
 		// TODO Cadastro de funcionarios no array pessoas, dependendo do login um acesso diferente
 		// TODO Verificação de dados.
 		
-		Menu.cadastrarCliente();
-		Menu.cadastrarFuncionario();
-		Menu.mostrarMap();
+		Menu.testeMap("123", 1);
+		Menu.testeMap("31", 2);
 		
-		Menu.login();
-		Menu.login();
+		Menu.mostraTeste();
+		
+		String
+		/*
+		 * Menu.cadastrarCliente(); Menu.cadastrarFuncionario(); Menu.mostrarMap();
+		 * 
+		 * 
+		 * Menu.login(); Menu.login();
+		 */
 		
 		//Menu.login();
 		//Menu.ContaCliente(CC);

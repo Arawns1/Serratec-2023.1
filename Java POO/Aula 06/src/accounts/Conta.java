@@ -1,5 +1,8 @@
 package accounts;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Conta implements ContaFacil{
 
 	protected String titular;
@@ -8,7 +11,27 @@ public abstract class Conta implements ContaFacil{
 	protected double saldo;
 	protected String tipo;
 	protected static int totalDeContas;
-
+	
+	static List<List<String>> matriz = new ArrayList<>();
+		
+	public static void addLinha() {
+		
+		List<String> linha = new ArrayList<>();
+		linha.add("Oi"); //coluna
+		linha.add("Olá");
+		linha.add("teste");	
+		
+		matriz.add(linha);
+	}
+	
+	public static void mostrarMatriz() {
+		for (List<String> list : matriz) {
+			System.out.println(list);
+		}
+	}
+	
+	
+	
 	public Conta() {
 	};
 

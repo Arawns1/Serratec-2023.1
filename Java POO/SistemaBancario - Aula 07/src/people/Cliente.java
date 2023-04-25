@@ -13,6 +13,7 @@ public class Cliente extends Pessoa {
 		this.ID = totalDeClientes;
 		totalDeClientes++;
 	}
+	
 	public Cliente() {};
 
 	public static void addCliente(Cliente client) {

@@ -3,20 +3,21 @@ import accounts.ContaCorrente;
 import accounts.ContaPoupanca;
 
 public class Principal {
-
-	public static void main(String[] args) {
-		System.out.println("Sistema bancario");
-		System.out.println("=".repeat(20));
-		Conta conta = new ContaCorrente();
-		conta.setTitular("Gabriel");
-		conta.imprimeExtrato();
-		System.out.println("=".repeat(20));
-		
 	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
 		
+		final double TAXA_SAQUE = 0.10;
 		
-		Conta conta2 = new ContaPoupanca();
-		conta2.setTitular("Gabriel2");
-		conta2.imprimeExtrato();
+		System.out.println(2*TAXA_SAQUE);
+		
+		Conta.mostrarMatriz();
+		Conta.addLinha();
+		Conta.addLinha();
+		Conta.mostrarMatriz();
 	}
 }

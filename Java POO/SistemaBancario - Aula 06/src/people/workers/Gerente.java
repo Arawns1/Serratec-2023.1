@@ -16,7 +16,7 @@ public class Gerente extends Assistente {
 		}
 		else {
 			System.out.println("Acesso negado!");
-			return false;
+			return false; 
 		}
 	}
 	
