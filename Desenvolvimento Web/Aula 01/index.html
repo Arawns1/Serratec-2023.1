@@ -5,11 +5,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
   <title>Aula 01</title>
 </head>
 
 <body>
-  <h1>Hello World!</h1>
+  <h1 id="status"> Você não está logado...</h1>
+  <form onsubmit="validateUser()">
+
+    <label>Nome</label>
+    <input type="text" id="nomeInput" />
+
+    <label>senha</label>
+    <input type="password" id="senhaInput" />
+
+    <button type="submit">Logar</button>
+  </form>
 </body>
 
 </html>
