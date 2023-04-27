@@ -7,24 +7,37 @@
 
 html,
 body {
-  padding: 0vw 2vw;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 header {
   display: flex;
   flex-direction: column;
   background-color: var(--azulHeader);
-  padding: 20px;
+  width: 100%;
   align-items: center;
   color: white;
   text-align: center;
   border-radius: 0px 0px 20px 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   margin: 0px 0px 20px 0px;
+  padding: 20px;
+}
+
+header img {
+  width: 50%;
+}
+
+header h3 {
+  margin: 5px 0px 10px 0px;
+  font-weight: 500;
 }
 
 main {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -54,8 +67,7 @@ li {
 
 .contatos {
   display: flex;
-  padding: 10px;
-  gap: 20px;
+  /* padding: 20px; */
   justify-content: space-around;
   background-color: var(--azulHeader);
   border-radius: 20px 20px 0px 0px;
@@ -75,31 +87,67 @@ li {
   padding: 0;
   display: flex;
   flex-direction: row;
-  gap: 40px;
-  justify-content: center;
-  align-items: center;
+  gap: 50px;
+  /* transform: translateX(-35px); */
 }
 
 .contatos li {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .contatos img {
   width: 30px;
 }
 
-.WhatsApp-QrCode {}
+#Whatsapp {
+  text-align: center;
+}
+
+#Whatsapp p {
+  color: white;
+  font-weight: 600;
+  margin: 10px;
+}
 
 #QrCode {
   width: 100px;
   height: 100px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  margin: 5;
+  border-radius: 15%;
 }
 
 a {
   color: white;
   text-decoration: none;
   font-weight: 600;
+}
+
+.BackTop {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50%;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.BackTop img {
+  width: 50%;
+  transform: rotate(270deg);
+  text-align: center;
+}
+
+.BackTop:hover {
+  scale: 1.1;
+  transform: translate(0px, -10px);
+  cursor: pointer;
 }
