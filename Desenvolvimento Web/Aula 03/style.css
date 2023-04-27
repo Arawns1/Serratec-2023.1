@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.quadrado {
+  width: 100px;
+  height: 100px;
+}
+
+#um {
+  background-color: aquamarine;
+
+  position: absolute;
+}
+
+#dois {
+  background-color: rgb(33, 13, 204);
+  position: absolute;
+  right: 0%;
+}
+
+#tres {
+  background-color: rgb(255, 0, 128);
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+}
+
+#quatro {
+  background-color: rgb(0, 255, 106);
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+}
+
+#cinco {
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
