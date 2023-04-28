@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  --azulHeader: rgba(20, 42, 243, 0.829);
+}
+
+html,
+body {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--azulHeader);
+  width: 100%;
+  align-items: center;
+  color: white;
+  text-align: center;
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  margin: 0px 0px 20px 0px;
+  padding: 20px;
+}
+
+header img {
+  width: 50%;
+}
+
+header h3 {
+  margin: 5px 0px 10px 0px;
+  font-weight: 500;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h2 {
+  padding: 10px 0px;
+  text-align: center;
+}
+
+.escolaridade {
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  margin: 25px 0px 10px 0px;
+}
+
+h4 {
+  margin: 0px 0px 10px 0px;
+}
+
+li {
+  margin: 10px 0px 10px 0px;
+}
+
+.contatos {
+  display: flex;
+  /* padding: 20px; */
+  justify-content: space-around;
+  background-color: var(--azulHeader);
+  border-radius: 20px 20px 0px 0px;
+  color: white;
+}
+
+.contatos h2 {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contatos ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  /* transform: translateX(-35px); */
+}
+
+.contatos li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.contatos img {
+  width: 30px;
+}
+
+#Whatsapp {
+  text-align: center;
+}
+
+#Whatsapp p {
+  color: white;
+  font-weight: 600;
+  margin: 10px;
+}
+
+#QrCode {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(255, 255, 255);
+  padding: 5px;
+  margin: 5;
+  border-radius: 15%;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.BackTop {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border-radius: 50%;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fromBottom .7s backwards;
+  transition: 1s;
+}
+
+.BackTop img {
+  width: 50%;
+  transform: rotate(270deg);
+  text-align: center;
+
+}
+
+.BackTop:hover {
+  scale: 1.1;
+  transform: translate(0px, -10px);
+  cursor: pointer;
+  transition: 1s;
+}
+
+@keyframes fromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
