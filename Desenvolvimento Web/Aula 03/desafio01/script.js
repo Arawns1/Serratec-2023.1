@@ -14,3 +14,13 @@ var j = 0;
         j=0
       }
   }, 3000);
+
+
+
+  let myHashMap = new Map([
+    [1,"Gabriel"],
+    [2, "Pedro"],
+    [3, "Henrique"]
+  ]);
+
+  console.log(myHashMap.get(1))
