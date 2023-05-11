@@ -2,6 +2,7 @@ package com.residencia.biblioteca.entities;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -11,10 +12,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "emprestimo")
+@Table(name = "emprestimos")
 public class Emprestimo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,10 +36,18 @@ public class Emprestimo {
 	
 	//coluna do emprestimo references coluna do aluno
 	@ManyToOne
-	@JoinColumn(name = "numeromatriculaaluno",
-				referencedColumnName = "numeromatriculaaluno")
+	@JoinColumn(name = "numero_matricula_aluno",
+				referencedColumnName = "numero_matricula_aluno")
 	private Aluno aluno;
 
+	
+	@ManyToOne
+	@JoinColumn(name = "codigo_livro",
+	referencedColumnName = "codigo_livro")
+	//Um emprestimo possui vários livros.
+	private Livro livro;
+	
+	
 	public Integer getCodigoEmprestimo() {
 		return codigoEmprestimo;
 	}
@@ -45,7 +55,6 @@ public class Emprestimo {
 	public void setCodigoEmprestimo(Integer codigoEmprestimo) {
 		this.codigoEmprestimo = codigoEmprestimo;
 	}
-
 
 	public Date getDataEmprestimo() {
 		return dataEmprestimo;
@@ -77,6 +86,14 @@ public class Emprestimo {
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.residencia.biblioteca.entities;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -8,26 +9,45 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "livro")
+@Table(name = "livros")
 public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	@Column(name = "codigo_livro")	private Integer codigoLivro;
-	
-	@Column(name = "nome_livro")	private String nomeLivro;
-	
-	@Column(name = "nome_autor")	private String nomeAutor;
-	
-	@Column(name = "data_lancamento")	private Date dataLancamento;
-	
-	@Column(name = "codigo_isbn")	private Long codigoISBN;
-	
-//	@Column(name = "codigo_editora")//	private Integer codigoEditora;
 
+	@Column(name = "codigo_livro")
+	private Integer codigoLivro;
+
+	@Column(name = "nome_livro")
+	private String nomeLivro;
+
+	@Column(name = "nome_autor")
+	private String nomeAutor;
+
+	@Column(name = "data_lancamento")
+	private Date dataLancamento;
+
+	@Column(name = "codigo_isbn")
+	private Long codigoISBN;
+
+	
+	@OneToMany(mappedBy = "livro")
+	private List<Emprestimo> emprestimos;
+	
+
+	@OneToOne
+	@JoinColumn(name = "codigo_editora",
+				referencedColumnName = "codigo_editora")
+	private Editora editora;
+	
+	
+	/* GETTERS AND SETTERS */
+	
 	public Integer getCodigoLivro() {
 		return codigoLivro;
 	}
@@ -68,19 +88,26 @@ public class Livro {
 		this.codigoISBN = codigoISBN;
 	}
 
-//	public Integer getCodigoEditora() {
-//		return codigoEditora;
-//	}
-//
-//	public void setCodigoEditora(Integer codigoEditora) {
-//		this.codigoEditora = codigoEditora;
-//	}
+	public List<Emprestimo> getEmprestimos() {
+		return emprestimos;
+	}
 
+	public void setEmprestimos(List<Emprestimo> emprestimos) {
+		this.emprestimos = emprestimos;
+	}
+
+	public Editora getEditora() {
+		return editora;
+	}
+
+	public void setEditora(Editora editora) {
+		this.editora = editora;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(codigoLivro);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -92,6 +119,5 @@ public class Livro {
 		Livro other = (Livro) obj;
 		return Objects.equals(codigoLivro, other.codigoLivro);
 	}
-	
-	
+
 }

@@ -13,7 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "aluno")
+@Table(name = "alunos")
 public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,12 +36,16 @@ public class Aluno {
 	//Um aluno possui vários empréstimos.
 	private List<Emprestimo> emprestimos;
 	
+
+	
 	public Integer getNumeroMatriculaAluno() {
 		return numeroMatriculaAluno;
 	}
 	public void setNumeroMatriculaAluno(Integer numeroMatriculaAluno) {
 		this.numeroMatriculaAluno = numeroMatriculaAluno;
 	}
+	
+	
 	public String getNome() {
 		return nome;
 	}
