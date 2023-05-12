@@ -1,5 +1,7 @@
+
 --Inserindo Editoras
-INSERT INTO public.editoras (nome) VALUES ('Editora 1'), ('Editora 2');
+INSERT INTO public.editoras (nome) VALUES ('Editora 1');
+INSERT INTO public.editoras (nome) VALUES ('Editora 2');
 
 -- Inserindo Alunos
 INSERT INTO public.alunos (nome,data_nascimento,logradouro,numero_logradouro,complemento,bairro,cidade) VALUES ('Alfredo','1980-07-20',NULL,NULL,NULL,NULL,NULL), ('Gilberto','1984-07-15',NULL,NULL,NULL,NULL,NULL), ('Astolfo','1990-05-31',NULL,NULL,NULL,NULL,NULL), ('Espiriquidiberto','1982-10-25',NULL,NULL,NULL,NULL,NULL);
