@@ -33,6 +33,7 @@ public class AlunoService {
 	public Aluno updateAluno(Aluno aluno, Integer id) {
 		return alunoRepository.save(aluno);
 	}
+	
 	//Delete from aluno where numeromatriculaaluno = 10 ;
 	public Boolean deleteAluno(Integer id) {
 		alunoRepository.deleteById(id);

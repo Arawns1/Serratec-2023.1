@@ -14,56 +14,56 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.residencia.biblioteca.entities.Aluno;
-import com.residencia.biblioteca.services.AlunoService;
+import com.residencia.biblioteca.entities.Editora;
+import com.residencia.biblioteca.services.EditoraService;
 
 @RestController
-@RequestMapping("/alunos")
-public class AlunoController {
+@RequestMapping("/editoras")
+public class EditoraController {
 	
 	@Autowired
-	AlunoService alunoService;
+	EditoraService editoraService;
 	
 	@GetMapping
-	public ResponseEntity<List<Aluno>> getAllAlunos(){
+	public ResponseEntity<List<Editora>> getAllEditoras(){
 		//return alunoService.getAllAlunos();
-		return new ResponseEntity<>(alunoService.getAllAlunos(),HttpStatus.FOUND);
+		return new ResponseEntity<>(editoraService.getAllEditoras(),HttpStatus.FOUND);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Aluno> getAlunoById(@PathVariable Integer id){
+	public ResponseEntity<Editora> getEditoraById(@PathVariable Integer id){
 		//return alunoService.getAlunoById(id);
-		Aluno alunoResponse = alunoService.getAlunoById(id);
-		if(alunoResponse == null) {
-			return new ResponseEntity<>(alunoResponse, HttpStatus.NOT_FOUND);
+		Editora editoraResponse = editoraService.getEditoraById(id);
+		if(editoraResponse == null) {
+			return new ResponseEntity<>(editoraResponse, HttpStatus.NOT_FOUND);
 		}
 		else {
-			return new ResponseEntity<>(alunoResponse,HttpStatus.FOUND);
+			return new ResponseEntity<>(editoraResponse,HttpStatus.FOUND);
 		}
 	}
 	
 	@PostMapping
-	public ResponseEntity<Aluno> saveAluno(@RequestBody Aluno aluno){
-		return new ResponseEntity<>(alunoService.saveAluno(aluno),HttpStatus.CREATED);
+	public ResponseEntity<Editora> saveEditora(@RequestBody Editora editora){
+		return new ResponseEntity<>(editoraService.saveEditora(editora),HttpStatus.CREATED);
 	}
 	
 	@PutMapping
 	//@PutMapping("/{id}")
-	public ResponseEntity<Aluno> updateAluno(@RequestBody Aluno aluno, Integer id){
+	public ResponseEntity<Editora> updateEditora(@RequestBody Editora editora, Integer id){
 		
-		Aluno alunoResponse = alunoService.updateAluno(aluno,id);
-		if(alunoResponse == null) {
+		Editora editoraResponse = editoraService.updateEditora(editora,id);
+		if(editoraResponse == null) {
 			return new ResponseEntity<>(null, HttpStatus.NOT_MODIFIED);
 		}
 		else {
-			return new ResponseEntity<>(alunoResponse,HttpStatus.OK);
+			return new ResponseEntity<>(editoraResponse,HttpStatus.OK);
 		}
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Boolean> deleteAluno(@PathVariable Integer id) {
+	public ResponseEntity<Boolean> deleteEditora(@PathVariable Integer id) {
 		
-		Boolean response = alunoService.deleteAluno(id);
+		Boolean response = editoraService.deleteEditora(id);
 		
 		if(response) {
 			return new ResponseEntity<>(response,HttpStatus.OK);

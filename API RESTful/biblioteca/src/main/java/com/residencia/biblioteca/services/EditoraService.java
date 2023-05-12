@@ -24,11 +24,11 @@ public class EditoraService {
 		return editoraRepository.findById(id).orElse(null);
 	}
 	
-	public Editora saveAluno(Editora editora) {
+	public Editora saveEditora(Editora editora) {
 		return editoraRepository.save(editora);
 	}
 	
-	public Editora updateAluno(Editora editora, Integer id) {
+	public Editora updateEditora(Editora editora, Integer id) {
 		return editoraRepository.save(editora);
 	}
 	
