@@ -14,13 +14,13 @@ import jakarta.persistence.Table;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name = "user_id")
+	@Column (name = "userid")
 	private Integer userId;
-	@Column (name = "user_nome")
+	@Column (name = "usernome")
 	private String userNome;
-	@Column (name = "user_email")
+	@Column (name = "useremail")
 	private String userEmail;
-	@Column (name = "user_password")
+	@Column (name = "userpassword")
 	private String userPassword;
 	public Integer getUserId() {
 		return userId;

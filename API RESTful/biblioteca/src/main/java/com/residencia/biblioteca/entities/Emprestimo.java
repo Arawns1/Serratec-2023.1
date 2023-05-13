@@ -18,30 +18,30 @@ import jakarta.persistence.Table;
 public class Emprestimo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "codigo_emprestimo")
+	@Column(name = "codigoemprestimo")
 	private Integer codigoEmprestimo;
 	
 //	private Integer codigoLivro;
 	
-	@Column(name = "data_emprestimo")
+	@Column(name = "dataemprestimo")
 	private Date dataEmprestimo;
 	
-	@Column(name = "data_entrega")
+	@Column(name = "dataentrega")
 	private Date dataEntrega;
 	
-	@Column(name = "valor_emprestimo")
+	@Column(name = "valoremprestimo")
 	private BigDecimal valorEmprestimo;
 	
 	//coluna do emprestimo references coluna do aluno
 	@ManyToOne
-	@JoinColumn(name = "numero_matricula_aluno",
-				referencedColumnName = "numero_matricula_aluno")
+	@JoinColumn(name = "numeromatriculaaluno",
+				referencedColumnName = "numeromatriculaaluno")
 	private Aluno aluno;
 
 	
 	@ManyToOne
-	@JoinColumn(name = "codigo_livro",
-	referencedColumnName = "codigo_livro")
+	@JoinColumn(name = "codigolivro",
+	referencedColumnName = "codigolivro")
 	//Um emprestimo possui vários livros.
 	private Livro livro;
 	

@@ -17,16 +17,16 @@ import jakarta.persistence.Table;
 public class Aluno {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "numero_matricula_aluno")
+	@Column(name = "numeromatriculaaluno")
 	private Integer numeroMatriculaAluno;
 	private String nome;
 	
-	@Column(name = "data_nascimento")
+	@Column(name = "datanascimento")
 	private Date dataNascimento;
 	
 	private String logradouro;
 	
-	@Column(name = "numero_logradouro")
+	@Column(name = "numerologradouro")
 	private String numeroLogradouro;
 	private String complemento;
 	private String bairro;

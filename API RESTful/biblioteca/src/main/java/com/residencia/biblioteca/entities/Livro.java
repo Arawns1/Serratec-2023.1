@@ -10,8 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,19 +20,19 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	@Column(name = "codigo_livro")
+	@Column(name = "codigolivro")
 	private Integer codigoLivro;
 
-	@Column(name = "nome_livro")
+	@Column(name = "nomelivro")
 	private String nomeLivro;
 
-	@Column(name = "nome_autor")
+	@Column(name = "nomeautor")
 	private String nomeAutor;
 
-	@Column(name = "data_lancamento")
+	@Column(name = "datalancamento")
 	private Date dataLancamento;
 
-	@Column(name = "codigo_isbn")
+	@Column(name = "codigoisbn")
 	private Long codigoISBN;
 
 	
@@ -40,9 +40,9 @@ public class Livro {
 	private List<Emprestimo> emprestimos;
 	
 
-	@OneToOne
-	@JoinColumn(name = "codigo_editora",
-				referencedColumnName = "codigo_editora")
+	@ManyToOne
+	@JoinColumn(name = "codigoeditora",
+				referencedColumnName = "codigoeditora")
 	private Editora editora;
 	
 	
