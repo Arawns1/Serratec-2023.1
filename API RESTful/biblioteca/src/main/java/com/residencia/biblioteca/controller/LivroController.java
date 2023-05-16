@@ -26,13 +26,13 @@ public class LivroController {
 	
 	@GetMapping
 	public ResponseEntity<List<Livro>> getAllLivros(){
-		//return alunoService.getAllAlunos();
+		//return livroService.getAllLivros();
 		return new ResponseEntity<>(livroService.getAllLivros(),HttpStatus.FOUND);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Livro> getLivroById(@PathVariable Integer id){
-		//return alunoService.getAlunoById(id);
+		//return livroService.getLivroById(id);
 		Livro livroResponse = livroService.getLivroById(id);
 		if(livroResponse == null) {
 			return new ResponseEntity<>(livroResponse, HttpStatus.NOT_FOUND);
@@ -42,7 +42,7 @@ public class LivroController {
 		}
 	}
 	
-	@PostMapping
+	@PostMapping()
 	public ResponseEntity<Livro> saveLivro(@RequestBody Livro livro){
 		return new ResponseEntity<>(livroService.saveLivro(livro),HttpStatus.CREATED);
 	}

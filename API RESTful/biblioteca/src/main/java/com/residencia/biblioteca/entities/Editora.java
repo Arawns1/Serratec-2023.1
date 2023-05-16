@@ -3,6 +3,8 @@ package com.residencia.biblioteca.entities;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,9 +13,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+/*
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "codigoEditora"
+		)*/
 @Entity
 @Table(name = "editora")
-public class Editora {
+public class Editora  {
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "codigoeditora")
@@ -30,6 +39,7 @@ public class Editora {
 	@Column(name = "imagem_url")
 	private String imagemUrl;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "editora")
 	private List<Livro> livros;
 

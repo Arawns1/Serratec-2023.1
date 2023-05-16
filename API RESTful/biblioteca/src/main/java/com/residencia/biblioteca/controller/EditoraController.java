@@ -26,13 +26,13 @@ public class EditoraController {
 	
 	@GetMapping
 	public ResponseEntity<List<Editora>> getAllEditoras(){
-		//return alunoService.getAllAlunos();
+		//return editoraService.getAllEditoras();
 		return new ResponseEntity<>(editoraService.getAllEditoras(),HttpStatus.FOUND);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Editora> getEditoraById(@PathVariable Integer id){
-		//return alunoService.getAlunoById(id);
+		//return editoraService.getEditoraById(id);
 		Editora editoraResponse = editoraService.getEditoraById(id);
 		if(editoraResponse == null) {
 			return new ResponseEntity<>(editoraResponse, HttpStatus.NOT_FOUND);

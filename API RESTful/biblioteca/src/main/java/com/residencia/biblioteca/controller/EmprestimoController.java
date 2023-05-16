@@ -26,13 +26,13 @@ public class EmprestimoController {
 	
 	@GetMapping
 	public ResponseEntity<List<Emprestimo>> getAllEmprestimos(){
-		//return alunoService.getAllAlunos();
+		//return emprestimoService.getAllEmprestimos();
 		return new ResponseEntity<>(emprestimoService.getAllEmprestimos(),HttpStatus.FOUND);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Emprestimo> getEmprestimoById(@PathVariable Integer id){
-		//return alunoService.getAlunoById(id);
+		//return emprestimoService.getEmprestimoById(id);
 		Emprestimo emprestimoResponse = emprestimoService.getEmprestimoById(id);
 		if(emprestimoResponse == null) {
 			return new ResponseEntity<>(emprestimoResponse, HttpStatus.NOT_FOUND);

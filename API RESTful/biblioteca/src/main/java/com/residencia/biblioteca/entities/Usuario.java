@@ -11,16 +11,17 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario  {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column (name = "userid")
+	@Column (name = "user_id")
 	private Integer userId;
-	@Column (name = "usernome")
+	@Column (name = "user_nome")
 	private String userNome;
-	@Column (name = "useremail")
+	@Column (name = "user_email")
 	private String userEmail;
-	@Column (name = "userpassword")
+	@Column (name = "user_password")
 	private String userPassword;
 	public Integer getUserId() {
 		return userId;

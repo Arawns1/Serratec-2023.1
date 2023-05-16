@@ -26,13 +26,13 @@ public class UsuarioController {
 	
 	@GetMapping
 	public ResponseEntity<List<Usuario>> getAllUsuarios(){
-		//return alunoService.getAllAlunos();
+		//return usuarioService.getAllUsuarios();
 		return new ResponseEntity<>(usuarioService.getAllUsuarios(),HttpStatus.FOUND);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Usuario> getUsuarioById(@PathVariable Integer id){
-		//return alunoService.getAlunoById(id);
+		//return usuarioService.getUsuarioById(id);
 		Usuario usuarioResponse = usuarioService.getUsuarioById(id);
 		if(usuarioResponse == null) {
 			return new ResponseEntity<>(usuarioResponse, HttpStatus.NOT_FOUND);

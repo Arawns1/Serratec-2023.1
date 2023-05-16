@@ -1,8 +1,11 @@
 package com.residencia.biblioteca.entities;
 
+
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,10 +14,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
+/*
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "numeroMatriculaAluno"
+		)*/
 @Entity
 @Table(name = "aluno")
 public class Aluno {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "numeromatriculaaluno")
@@ -32,6 +40,7 @@ public class Aluno {
 	private String bairro;
 	private String cidade;
 	
+	@JsonManagedReference
 	@OneToMany(mappedBy = "aluno")
 	//Um aluno possui vários empréstimos.
 	private List<Emprestimo> emprestimos;
