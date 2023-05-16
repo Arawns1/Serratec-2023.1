@@ -42,7 +42,7 @@ public class LivroController {
 		}
 	}
 	
-	@PostMapping()
+	@PostMapping
 	public ResponseEntity<Livro> saveLivro(@RequestBody Livro livro){
 		return new ResponseEntity<>(livroService.saveLivro(livro),HttpStatus.CREATED);
 	}

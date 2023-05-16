@@ -45,11 +45,11 @@ public class Livro  {
 	@Column(name = "codigoisbn")
 	private Long codigoISBN;
 
-	@JsonManagedReference
+	@JsonManagedReference(value = "livro-back")
 	@OneToMany(mappedBy = "livro")
 	private List<Emprestimo> emprestimos;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "editora-back")
 	@ManyToOne
 	@JoinColumn(name = "codigoeditora",
 				referencedColumnName = "codigoeditora")

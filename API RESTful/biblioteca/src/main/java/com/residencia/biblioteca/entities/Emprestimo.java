@@ -40,14 +40,14 @@ public class Emprestimo{
 	@Column(name = "valoremprestimo")
 	private BigDecimal valorEmprestimo;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "aluno-back")
 	//coluna do emprestimo references coluna do aluno
 	@ManyToOne
 	@JoinColumn(name = "numeromatriculaaluno",
 				referencedColumnName = "numeromatriculaaluno")
 	private Aluno aluno;
 	
-	@JsonBackReference
+	@JsonBackReference(value = "livro-back")
 	@ManyToOne
 	@JoinColumn(name = "codigolivro",
 	referencedColumnName = "codigolivro")

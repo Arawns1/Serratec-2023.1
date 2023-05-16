@@ -40,7 +40,7 @@ public class Aluno {
 	private String bairro;
 	private String cidade;
 	
-	@JsonManagedReference
+	@JsonManagedReference(value = "aluno-back")
 	@OneToMany(mappedBy = "aluno")
 	//Um aluno possui vários empréstimos.
 	private List<Emprestimo> emprestimos;

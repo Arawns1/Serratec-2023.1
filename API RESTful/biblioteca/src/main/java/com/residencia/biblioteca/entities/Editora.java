@@ -39,7 +39,7 @@ public class Editora  {
 	@Column(name = "imagem_url")
 	private String imagemUrl;
 	
-	@JsonManagedReference
+	@JsonManagedReference(value = "editora-back")
 	@OneToMany(mappedBy = "editora")
 	private List<Livro> livros;
 
