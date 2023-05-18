@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.residencia.biblioteca.dto.EmprestimoResumidoDTO;
 import com.residencia.biblioteca.entities.Emprestimo;
 import com.residencia.biblioteca.services.EmprestimoService;
 
@@ -34,6 +35,17 @@ public class EmprestimoController {
 	public ResponseEntity<Emprestimo> getEmprestimoById(@PathVariable Integer id){
 		//return emprestimoService.getEmprestimoById(id);
 		Emprestimo emprestimoResponse = emprestimoService.getEmprestimoById(id);
+		if(emprestimoResponse == null) {
+			return new ResponseEntity<>(emprestimoResponse, HttpStatus.NOT_FOUND);
+		}
+		else {
+			return new ResponseEntity<>(emprestimoResponse,HttpStatus.FOUND);
+		}
+	}
+	
+	@GetMapping("/dto/{id}")
+	public ResponseEntity<EmprestimoResumidoDTO> getEmprestimoDtoById(@PathVariable Integer id){
+		EmprestimoResumidoDTO emprestimoResponse = emprestimoService.getEmprestimoDtoById(id);
 		if(emprestimoResponse == null) {
 			return new ResponseEntity<>(emprestimoResponse, HttpStatus.NOT_FOUND);
 		}

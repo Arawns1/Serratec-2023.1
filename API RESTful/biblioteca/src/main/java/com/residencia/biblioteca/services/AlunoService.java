@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.residencia.biblioteca.dto.AlunoResumidoDTO;
 import com.residencia.biblioteca.entities.Aluno;
 import com.residencia.biblioteca.repositories.AlunoRepository;
 
@@ -15,14 +16,23 @@ public class AlunoService {
 	@Autowired
 	AlunoRepository alunoRepository;
 	
-	@Transactional(readOnly = true)
 	public List<Aluno> getAllAlunos() {
 		return alunoRepository.findAll();
 	}
 	
-	@Transactional(readOnly = true)
 	public Aluno getAlunoById(Integer id) {
 		return alunoRepository.findById(id).orElse(null);
+	}
+	
+	public AlunoResumidoDTO getAlunoDtoById(Integer id) {
+		
+		Aluno alunoResponse = alunoRepository.findById(id).orElse(null);
+		
+		if(alunoResponse == null) {
+			return null;
+		}
+		return new AlunoResumidoDTO(alunoResponse);
+		
 	}
 	
 	public Aluno saveAluno(Aluno aluno) {

@@ -5,7 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,11 +15,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-/*
+
 @JsonIdentityInfo(
 		generator = ObjectIdGenerators.PropertyGenerator.class,
 		property = "numeroMatriculaAluno"
-		)*/
+		)
 @Entity
 @Table(name = "aluno")
 public class Aluno {
@@ -32,6 +33,9 @@ public class Aluno {
 	@Column(name = "datanascimento")
 	private Date dataNascimento;
 	
+	@Column(name = "CPF")
+	private String CPF;
+	
 	private String logradouro;
 	
 	@Column(name = "numerologradouro")
@@ -40,12 +44,10 @@ public class Aluno {
 	private String bairro;
 	private String cidade;
 	
-	@JsonManagedReference(value = "aluno-back")
+	//@JsonManagedReference(value = "aluno-back")
 	@OneToMany(mappedBy = "aluno")
 	//Um aluno possui vários empréstimos.
 	private List<Emprestimo> emprestimos;
-	
-
 	
 	public Integer getNumeroMatriculaAluno() {
 		return numeroMatriculaAluno;
@@ -53,7 +55,6 @@ public class Aluno {
 	public void setNumeroMatriculaAluno(Integer numeroMatriculaAluno) {
 		this.numeroMatriculaAluno = numeroMatriculaAluno;
 	}
-	
 	
 	public String getNome() {
 		return nome;
@@ -97,7 +98,12 @@ public class Aluno {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	
+	public String getCPF() {
+		return CPF;
+	}
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
 	public List<Emprestimo> getEmprestimos() {
 		return emprestimos;
 	}

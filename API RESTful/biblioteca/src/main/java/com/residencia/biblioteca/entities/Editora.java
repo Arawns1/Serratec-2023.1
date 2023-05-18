@@ -3,7 +3,8 @@ package com.residencia.biblioteca.entities;
 import java.util.List;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,11 +14,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-/*
+
 @JsonIdentityInfo(
 		generator = ObjectIdGenerators.PropertyGenerator.class,
 		property = "codigoEditora"
-		)*/
+		)
 @Entity
 @Table(name = "editora")
 public class Editora  {
@@ -28,6 +29,7 @@ public class Editora  {
 	@Column(name = "codigoeditora")
 	private Integer codigoEditora;
 	
+	@Column(name = "nome")
 	private String nome;
 	
 	@Column(name = "imagem_nome")
@@ -39,7 +41,7 @@ public class Editora  {
 	@Column(name = "imagem_url")
 	private String imagemUrl;
 	
-	@JsonManagedReference(value = "editora-back")
+	//@JsonManagedReference(value = "editora-back")
 	@OneToMany(mappedBy = "editora")
 	private List<Livro> livros;
 

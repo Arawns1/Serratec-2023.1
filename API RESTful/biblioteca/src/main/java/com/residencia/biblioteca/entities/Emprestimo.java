@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,11 +16,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-/*
+
 @JsonIdentityInfo(
 		generator = ObjectIdGenerators.PropertyGenerator.class,
 		property = "codigoEmprestimo"
-		)*/
+		)
 @Entity
 @Table(name = "emprestimo")
 public class Emprestimo{
@@ -40,14 +41,14 @@ public class Emprestimo{
 	@Column(name = "valoremprestimo")
 	private BigDecimal valorEmprestimo;
 	
-	@JsonBackReference(value = "aluno-back")
+	//@JsonBackReference(value = "aluno-back")
 	//coluna do emprestimo references coluna do aluno
 	@ManyToOne
 	@JoinColumn(name = "numeromatriculaaluno",
 				referencedColumnName = "numeromatriculaaluno")
 	private Aluno aluno;
 	
-	@JsonBackReference(value = "livro-back")
+	//@JsonBackReference(value = "livro-back")
 	@ManyToOne
 	@JoinColumn(name = "codigolivro",
 	referencedColumnName = "codigolivro")
