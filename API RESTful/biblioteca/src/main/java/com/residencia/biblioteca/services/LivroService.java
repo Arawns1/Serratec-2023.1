@@ -4,9 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.residencia.biblioteca.dto.LivroResumidoDTO;
 import com.residencia.biblioteca.entities.Livro;
 import com.residencia.biblioteca.repositories.LivroRepository;
 

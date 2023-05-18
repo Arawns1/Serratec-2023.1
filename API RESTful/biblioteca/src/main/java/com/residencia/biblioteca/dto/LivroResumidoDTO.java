@@ -17,6 +17,8 @@ public class LivroResumidoDTO {
 		this.nomeAutor = nomeAutor;
 		this.dataLancamento = dataLancamento;
 	}
+	
+	
 	public String getNomeLivro() {
 		return nomeLivro;
 	}

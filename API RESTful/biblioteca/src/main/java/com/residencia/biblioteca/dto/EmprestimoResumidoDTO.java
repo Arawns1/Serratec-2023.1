@@ -2,28 +2,23 @@ package com.residencia.biblioteca.dto;
 
 import java.util.Date;
 
-import com.residencia.biblioteca.entities.Emprestimo;
-
 public class EmprestimoResumidoDTO {
 	private Date dataEmprestimo;
 	private Date dataEntrega;
-	private String nomeLivro;
+	private LivroResumidoDTO livroResumidoDTO;
 	
 	public EmprestimoResumidoDTO() {
 		
 	}
-	public EmprestimoResumidoDTO(Emprestimo emprestimo) {
-		 this.dataEmprestimo = emprestimo.getDataEmprestimo();
-		 this.dataEntrega = emprestimo.getDataEntrega();
-		 this.nomeLivro = emprestimo.getLivro().getNomeLivro();
-	}
 	
-	public EmprestimoResumidoDTO(Date dataEmprestimo, Date dataEntrega, String nomeLivro) {
+	public EmprestimoResumidoDTO(Date dataEmprestimo, Date dataEntrega, LivroResumidoDTO livroResumidoDTO) {
 		super();
 		this.dataEmprestimo = dataEmprestimo;
 		this.dataEntrega = dataEntrega;
-		this.nomeLivro = nomeLivro;
+		this.livroResumidoDTO = livroResumidoDTO;
 	}
+
+
 	public Date getDataEmprestimo() {
 		return dataEmprestimo;
 	}
@@ -36,12 +31,12 @@ public class EmprestimoResumidoDTO {
 	public void setDataEntrega(Date dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
-	public String getNomeLivro() {
-		return nomeLivro;
+
+	public LivroResumidoDTO getLivroResumidoDTO() {
+		return livroResumidoDTO;
 	}
-	public void setNomeLivro(String nomeLivro) {
-		this.nomeLivro = nomeLivro;
+
+	public void setLivroResumidoDTO(LivroResumidoDTO livroResumidoDTO) {
+		this.livroResumidoDTO = livroResumidoDTO;
 	}
-	
-	
 }
