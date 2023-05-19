@@ -3,6 +3,7 @@ package com.residencia.biblioteca.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class AlunoService {
 
 	@Autowired
 	AlunoRepository alunoRepository;
-
+	
 	public List<Aluno> getAllAlunos() {
 		return alunoRepository.findAll();
 	}
@@ -70,30 +71,39 @@ public class AlunoService {
 	}
 
 	public AlunoDTO saveAlunoDto(AlunoDTO alunoDto) {
-
-		Aluno aluno = new Aluno();
-		aluno.setBairro(alunoDto.getBairro());
-		aluno.setCidade(alunoDto.getCidade());
-		aluno.setComplemento(alunoDto.getComplemento());
-		aluno.setCPF(alunoDto.getCPF());
-		aluno.setDataNascimento(alunoDto.getDataNascimento());
-		aluno.setLogradouro(alunoDto.getLogradouro());
-		aluno.setNome(alunoDto.getNome());
-		aluno.setNumeroLogradouro(alunoDto.getNumeroLogradouro());
-		Aluno novoAluno = alunoRepository.save(aluno);
-
-		AlunoDTO novoAlunoDTO = new AlunoDTO();
-		novoAlunoDTO.setBairro(novoAluno.getBairro());
-		novoAlunoDTO.setCidade(novoAluno.getCidade());
-		novoAlunoDTO.setComplemento(novoAluno.getComplemento());
-		novoAlunoDTO.setCPF(novoAluno.getCPF());
-		novoAlunoDTO.setDataNascimento(novoAluno.getDataNascimento());
-		novoAlunoDTO.setLogradouro(novoAluno.getLogradouro());
-		novoAlunoDTO.setNome(novoAluno.getNome());
-		novoAlunoDTO.setNumeroLogradouro(novoAluno.getNumeroLogradouro());
-		novoAlunoDTO.setNumeroMatriculaAluno(novoAluno.getNumeroMatriculaAluno());
-
-		return novoAlunoDTO;
+		
+		ModelMapper modelMapper = new ModelMapper();
+		
+		Aluno aluno = modelMapper.map(alunoDto, Aluno.class);
+		
+		alunoRepository.save(aluno);
+		
+		return modelMapper.map(aluno, AlunoDTO.class);
+		
+		/*
+		 * Aluno aluno = new Aluno(); aluno.setBairro(alunoDto.getBairro());
+		 * aluno.setCidade(alunoDto.getCidade());
+		 * aluno.setComplemento(alunoDto.getComplemento());
+		 * aluno.setCPF(alunoDto.getCPF());
+		 * aluno.setDataNascimento(alunoDto.getDataNascimento());
+		 * aluno.setLogradouro(alunoDto.getLogradouro());
+		 * aluno.setNome(alunoDto.getNome());
+		 * aluno.setNumeroLogradouro(alunoDto.getNumeroLogradouro()); Aluno novoAluno =
+		 * alunoRepository.save(aluno);
+		 * 
+		 * AlunoDTO novoAlunoDTO = new AlunoDTO();
+		 * novoAlunoDTO.setBairro(novoAluno.getBairro());
+		 * novoAlunoDTO.setCidade(novoAluno.getCidade());
+		 * novoAlunoDTO.setComplemento(novoAluno.getComplemento());
+		 * novoAlunoDTO.setCPF(novoAluno.getCPF());
+		 * novoAlunoDTO.setDataNascimento(novoAluno.getDataNascimento());
+		 * novoAlunoDTO.setLogradouro(novoAluno.getLogradouro());
+		 * novoAlunoDTO.setNome(novoAluno.getNome());
+		 * novoAlunoDTO.setNumeroLogradouro(novoAluno.getNumeroLogradouro());
+		 * novoAlunoDTO.setNumeroMatriculaAluno(novoAluno.getNumeroMatriculaAluno());
+		 * 
+		 * return novoAlunoDTO;
+		 */
 	}
 
 	// MEU JEITO DE SALVAR UM ALUNODTO -> ALUNO
