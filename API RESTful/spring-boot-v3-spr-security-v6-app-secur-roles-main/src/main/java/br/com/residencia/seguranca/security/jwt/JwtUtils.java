@@ -1,10 +1,9 @@
 package br.com.residencia.seguranca.security.jwt;
 
-import java.util.Base64;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,10 +12,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import br.com.residencia.seguranca.security.service.UserDetailsImpl;
-import io.jsonwebtoken.*;
-
-import java.nio.charset.StandardCharsets;
-import java.security.Key;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
 @Component

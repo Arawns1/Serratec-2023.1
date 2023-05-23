@@ -8,6 +8,7 @@ public class EditoraResumidaDTO {
 	private Integer codigoEditora;
 	private String nome;
 	private List<LivroResumidoDTO> listaLivrosResDto;
+	private String cnpj;
 	
 	public EditoraResumidaDTO() {
 		super();
@@ -39,5 +40,12 @@ public class EditoraResumidaDTO {
 	public void setListaLivrosResDto(List<LivroResumidoDTO> listaLivrosResDto) {
 		this.listaLivrosResDto = listaLivrosResDto;
 	}
-	
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
 }

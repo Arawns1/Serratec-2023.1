@@ -40,6 +40,7 @@ public class Editora  {
 	
 	@Column(name = "imagem_url")
 	private String imagemUrl;
+
 	
 	//@JsonManagedReference(value = "editora-back")
 	@OneToMany(mappedBy = "editora")
@@ -94,7 +95,7 @@ public class Editora  {
 	public void setLivros(List<Livro> livros) {
 		this.livros = livros;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(codigoEditora);

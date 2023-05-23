@@ -22,6 +22,9 @@ public class AlunoService {
 	@Autowired
 	AlunoRepository alunoRepository;
 	
+	@Autowired
+	EmailService emailService;
+	
 	public List<Aluno> getAllAlunos() {
 		return alunoRepository.findAll();
 	}
@@ -67,7 +70,11 @@ public class AlunoService {
 	}
 
 	public Aluno saveAluno(Aluno aluno) {
-		return alunoRepository.save(aluno);
+		Aluno novoAluno = alunoRepository.save(aluno);
+		emailService.enviarEmail("gabrieldamico22@gmail.com",
+								 "Novo Aluno cadastrado", 
+								 novoAluno.toString());
+		return novoAluno;
 	}
 
 	public AlunoDTO saveAlunoDto(AlunoDTO alunoDto) {

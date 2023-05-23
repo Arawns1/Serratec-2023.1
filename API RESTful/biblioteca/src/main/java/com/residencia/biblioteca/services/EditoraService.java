@@ -1,13 +1,18 @@
 package com.residencia.biblioteca.services;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import com.residencia.biblioteca.dto.EditoraResumidaDTO;
 import com.residencia.biblioteca.dto.LivroResumidoDTO;
+import com.residencia.biblioteca.dto.ReceitaWsDTO;
 import com.residencia.biblioteca.entities.Editora;
 import com.residencia.biblioteca.entities.Livro;
 import com.residencia.biblioteca.repositories.EditoraRepository;
@@ -15,7 +20,7 @@ import com.residencia.biblioteca.repositories.EditoraRepository;
 @Service
 public class EditoraService {
 	@Autowired
-	EditoraRepository editoraRepository;
+	EditoraRepository editoraRepository;	
 	
 	public List<Editora> getAllEditoras() {
 		return editoraRepository.findAll();
@@ -60,6 +65,17 @@ public class EditoraService {
 		return editoraRepository.save(editora);
 	}
 	
+	
+	public EditoraResumidaDTO saveEditoraDto(EditoraResumidaDTO editoraResumidaDto) {
+		ModelMapper modelMapper = new ModelMapper();
+		ReceitaWsDTO recDto = consultaApiReceitaWs(editoraResumidaDto.getCnpj());
+		System.out.println("ReceitaWsDTO: " + recDto);
+		Editora editora = modelMapper.map(editoraResumidaDto, Editora.class);
+		
+		return modelMapper.map(editora, EditoraResumidaDTO.class);
+	}
+	
+	
 	public Editora updateEditora(Editora editora, Integer id) {
 		return editoraRepository.save(editora);
 	}
@@ -74,6 +90,20 @@ public class EditoraService {
 			return false;
 		}
 		
+	}
+	
+	private ReceitaWsDTO consultaApiReceitaWs(String cnpj) {
+		RestTemplate restTemplate = new RestTemplate();
+		String uri = "https://receitaws.com.br/v1/cnpj/"+cnpj;
+		//nome:valor -> cnpj:numero
+		Map<String, String> params = new HashMap<>();
+		//chave cnpj pq o serviço espera receber esse nome.
+		params.put("cnpj", cnpj);
+		
+		//ira acessar o url, instanciar a classe ReceitaWs com base nos parametros
+		ReceitaWsDTO recDto = restTemplate.getForObject(uri, ReceitaWsDTO.class, params);
+		
+		return recDto;
 	}
 	
 }

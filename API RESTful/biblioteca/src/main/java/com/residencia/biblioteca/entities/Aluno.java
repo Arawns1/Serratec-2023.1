@@ -126,6 +126,12 @@ public class Aluno {
 		Aluno other = (Aluno) obj;
 		return Objects.equals(numeroMatriculaAluno, other.numeroMatriculaAluno);
 	}
+	@Override
+	public String toString() {
+		return "Aluno [numeroMatriculaAluno=" + numeroMatriculaAluno + ", nome=" + nome + ", dataNascimento="
+				+ dataNascimento + ", CPF=" + CPF + ", logradouro=" + logradouro + ", numeroLogradouro="
+				+ numeroLogradouro + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade + "]";
+	}
 	
 	
 	
