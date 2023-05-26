@@ -34,13 +34,13 @@ public class AlunoController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Aluno> getAlunoById(@PathVariable Integer id) {
-		// return alunoService.getAlunoById(id);
 		Aluno alunoResponse = alunoService.getAlunoById(id);
-		if (alunoResponse == null) {
-			return new ResponseEntity<>(alunoResponse, HttpStatus.NOT_FOUND);
-		} else {
-			return new ResponseEntity<>(alunoResponse, HttpStatus.FOUND);
-		}
+		return new ResponseEntity<>(alunoResponse, HttpStatus.OK);
+		/*
+		 * Aluno alunoResponse = alunoService.getAlunoById(id); if (alunoResponse ==
+		 * null) { return new ResponseEntity<>(alunoResponse, HttpStatus.NOT_FOUND); }
+		 * else { return new ResponseEntity<>(alunoResponse, HttpStatus.FOUND); }
+		 */
 	}
 
 	@GetMapping("/{id}/emprestimos")

@@ -14,6 +14,7 @@ import com.residencia.biblioteca.dto.LivroResumidoDTO;
 import com.residencia.biblioteca.entities.Aluno;
 import com.residencia.biblioteca.entities.Emprestimo;
 import com.residencia.biblioteca.entities.Livro;
+import com.residencia.biblioteca.exception.AlunoNotFoundException;
 import com.residencia.biblioteca.repositories.AlunoRepository;
 
 @Service
@@ -30,7 +31,8 @@ public class AlunoService {
 	}
 
 	public Aluno getAlunoById(Integer id) {
-		return alunoRepository.findById(id).orElse(null);
+		return alunoRepository.findById(id)
+				.orElseThrow(() -> new AlunoNotFoundException(id));
 	}
 
 	public AlunoResumidoDTO getAlunoEmprestimosDto(Integer id) {

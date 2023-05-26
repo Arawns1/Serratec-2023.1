@@ -32,14 +32,13 @@ public class LivroController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Livro> getLivroById(@PathVariable Integer id){
-		//return livroService.getLivroById(id);
 		Livro livroResponse = livroService.getLivroById(id);
-		if(livroResponse == null) {
-			return new ResponseEntity<>(livroResponse, HttpStatus.NOT_FOUND);
-		}
-		else {
-			return new ResponseEntity<>(livroResponse,HttpStatus.FOUND);
-		}
+		return new ResponseEntity<>(livroResponse, HttpStatus.OK);
+		/*
+		 * if(livroResponse == null) { return new ResponseEntity<>(livroResponse,
+		 * HttpStatus.NOT_FOUND); } else { return new
+		 * ResponseEntity<>(livroResponse,HttpStatus.FOUND); }
+		 */
 	}
 	
 	@PostMapping

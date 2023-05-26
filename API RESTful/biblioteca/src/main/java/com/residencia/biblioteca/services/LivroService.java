@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.residencia.biblioteca.entities.Livro;
+import com.residencia.biblioteca.exception.NoSuchElementException;
 import com.residencia.biblioteca.repositories.LivroRepository;
 
 @Service
@@ -17,7 +18,8 @@ public class LivroService {
 	}
 	
 	public Livro getLivroById(Integer id) {
-		return livroRepository.findById(id).orElse(null);
+		return livroRepository.findById(id)
+				.orElseThrow(() -> new NoSuchElementException("Livro", id));
 	}
 	
 	public Livro saveLivro(Livro livro) {
