@@ -6,21 +6,22 @@
 html, body{
     background-color: #0D1117;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    height: 98vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     
+    
 }
 
 .content-container{
-    width: 70%;
+    width:80%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
+    
 }
 
 .people-container{
@@ -30,37 +31,44 @@ html, body{
     justify-content: space-around;
     text-align: center;
     background-color: #333941;
-    width: 23rem;
-    height: 22rem;
+    width: 15rem;
+    height: 18rem;
     border-radius: 0.5em;
-    flex: 25.25%;
     margin: 15px;
     gap: 5px;
-    padding: 8px;
-    box-shadow: 0px 0px 177px -51px rgb(90, 90, 90);
-    transition: 0.5s ease-in-out; 
-
+    padding: 10px;
+    border: 1px solid #8B949E;
+    box-shadow: 0px 0px 177px -51px rgba(31, 46, 206, 0.571);
+    transition: 0.5s ease-in-out;
+    overflow: hidden; 
+    filter: blur(0px);
 }
 .people-container:hover{
     border: 1px solid #c9d1d494;
     cursor: pointer;
-    box-shadow: 0px 0px 177px -150px rgb(90, 90, 90);
+    box-shadow: 0px 0px 177px -30px rgb(255, 255, 255);
     scale: 1.02;
     background-color: #333941;
+   
+}
+
+.content-container:hover .people-container:not(:hover){
+    opacity: 0.5;
 }
 
 img{
     border-radius: 50%;
-    width: 180px;
+    width: 140px;
 }
 h1{
-font-size: 1.8em;
+font-size: 1.4em;
  color: #E6EDF3;
- inline-size: 300px;
+ inline-size: 210px;
  overflow-wrap: break-word;
 }
 h2{
-    font-size: 1.1em;
+    font-size: 0.8em;
+    font-weight: 100;
     color: #747d88b9;
 }
 
