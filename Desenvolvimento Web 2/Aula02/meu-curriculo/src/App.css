@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.page{
+    margin: auto;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.body-content{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+   
+}
+h1{
+    font-size: 1.8em;
+}
+
+h2{
+    font-size: 1.2em;
+    text-align: center;
+}
+
+p{
+    font-size: 1.2em;
+}
+
+li{
+    margin: 10px 20px;
+}
+
+
+@media (max-width: 768px) {
+
+  }

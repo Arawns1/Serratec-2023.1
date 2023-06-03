@@ -1,0 +1,24 @@
+.experiencia-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+h2{
+    text-align: center;
+}
+.experiencias-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:20px;
+}
+.experiencia{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 8px;
+}
+.experiencia li{
+    margin: 10px 20px;
+}
