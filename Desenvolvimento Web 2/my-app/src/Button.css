@@ -1,0 +1,28 @@
+.button{
+    width: 200px;
+    height: 30px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    color:#C9D1D4;
+    background-color: #4e5863;
+    border: 1px solid #8B949E;
+    border-radius: 0.5em;
+    transition: 0.8s ease;
+}
+
+.button:hover{
+    filter: brightness(1.2);
+}
+
+a{
+    text-decoration: none;
+}
+a:visited{
+    color:#C9D1D4;
+}
+a:active{
+    color:#C9D1D4;
+}
