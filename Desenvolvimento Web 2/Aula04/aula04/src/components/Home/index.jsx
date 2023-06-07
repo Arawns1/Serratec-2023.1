@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom'
 import './style.css'
 
 function Home(){
@@ -15,6 +16,7 @@ function Home(){
             <h1> Contador </h1>
             <h2>{count}</h2>
             <button onClick={() => setCount(count + 1)}> Aumentar </button>
+            <Link to="/Login">Ir para a página de Login</Link>
         </div>
     )
 }

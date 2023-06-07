@@ -5,6 +5,8 @@ import {useEffect, useState} from 'react';
 function Home(){
 
     const [pokemons, setPokemons] = useState([]);
+    const[isHidden, setisHidden] = useState(true);
+
 
     useEffect(() => {
         function fetchData() {
@@ -29,18 +31,25 @@ function Home(){
         <header id="titleContainer">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1200px-Pok%C3%A9_Ball_icon.svg.png" alt="Pokeball" />
             <h1>Pokedex</h1>
+            <button onClick={() => setisHidden(!isHidden)}>{isHidden ? 'Unhide Pokedex' : 'Hide Pokedex'}</button>
         </header>
         <div id="contentContainer">
             {
-                pokemons.map(pokemon => {
-                    return(
-                        <div key={pokemon.id} className="pokeCard">
-                            <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.newId}.png`} alt={pokemon.name.english} />
-                            <h3>{pokemon.name.english}</h3>
-                            <span>{pokemon.type[0]}</span>
-                        </div>
-                    )
-                })
+                isHidden? (
+                    null
+                ) : (
+                    pokemons.map(pokemon => {
+                        return(
+                            <div key={pokemon.id} className="pokeCard">
+                                <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokemon.newId}.png`} alt={pokemon.name.english} />
+                                <h3>{pokemon.name.english}</h3>
+                                <span>{pokemon.type[0]}</span>
+                            </div>
+                        )
+                    })
+                )
+                
+
             }
         </div>
         </div>
