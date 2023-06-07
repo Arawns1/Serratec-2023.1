@@ -1,0 +1,14 @@
+.cardContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 8px;
+    border: 1px solid #c9c9c9;
+    width: 200px;
+}
+
+.cardContainer img {
+    border-radius: 50%;
+    width: 100px;
+}
